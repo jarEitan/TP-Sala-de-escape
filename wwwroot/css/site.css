@@ -1,31 +1,149 @@
-html {
-  font-size: 14px;
+*{
+  margin: 0;
+  padding: 0;
+  font-family : "Courier New" , monospace;
+  text-shadow : 0  0  10px  #00ff00 ; 
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
+body{
+  color : #00ff00 ;
+  background :linear-gradient(to top, #000000 , #000000 , #333333 , #333333 ); 
+  background-size : cover; 
+  background-size : 100%  1px ;
+}
+
+@keyframes scanlines { 
+  from { 
+    background-position: 0  0 ; 
+  } 
+  to { 
+    background-position: 0 - 10px ; 
+  } 
+}
+
+main{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h2{
+  width: fit-content;
+  font-size: 300%;
+  margin: 1%;
+  padding: 1%;
+  border: 1px, solid, greenyellow;
+  border-radius: 25px;
+  box-shadow: 0px 0px 48px 11px rgba(171,255,46,0.5);
+}
+
+.button{
+  font-size: 300%;
+  margin: 1%;
+  padding: 1%;
+  border: 1px, solid, greenyellow;
+  border-radius: 25px;
+  box-shadow: 0px 0px 48px 11px rgba(171,255,46,0.5);
+  text-align: center;
+  background-color: black;
+  color : #00ff00; 
+  align-self: flex-start;
+}
+
+section{
+  width: 98%;
+  margin: 1%;
+  padding: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: 1px, solid, greenyellow;
+  border-radius: 25px;
+  box-shadow: 0px 0px 48px 11px rgba(171, 255, 46, 0.5);
+}
+
+section div{
+  width: fit-content;
+}
+
+.titulo{
+  width: 98%;
+  overflow: hidden;
+  position: relative;
+}
+
+.titulo h1{
+  position: relative;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #abff2e;
+  text-shadow:
+    0 0 6px rgba(171, 255, 46, 0.9),
+    0 0 18px rgba(171, 255, 46, 0.6),
+    0 0 32px rgba(171, 255, 46, 0.35);
+  animation: matrixGlow 2.8s infinite ease-in-out, matrixGlitch 1.1s infinite steps(1, end);
+}
+
+.titulo h1::before,
+.titulo h1::after{
+  content: "Un Dia Cómun";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.titulo h1::before{
+  color: #00ff88;
+  transform: translate(2px, 0);
+  clip-path: inset(0 0 55% 0);
+}
+
+.titulo h1::after{
+  color: #7cff00;
+  transform: translate(-2px, 0);
+  clip-path: inset(45% 0 0 0);
+}
+
+@keyframes matrixGlow{
+  0%, 100%{
+    color: #abff2e;
+    text-shadow:
+      0 0 6px rgba(171, 255, 46, 0.9),
+      0 0 18px rgba(171, 255, 46, 0.6),
+      0 0 32px rgba(171, 255, 46, 0.35);
+  }
+  25%{
+    color: #eaff66;
+  }
+  50%{
+    color: #49ff9a;
+  }
+  75%{
+    color: #7cff00;
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+@keyframes matrixGlitch{
+  0%, 92%, 100%{
+    transform: translate(0, 0) skewX(0deg);
+    filter: hue-rotate(0deg);
+  }
+  93%{
+    transform: translate(-2px, 1px) skewX(10deg);
+  }
+  94%{
+    transform: translate(3px, -1px) skewX(-12deg);
+  }
+  95%{
+    transform: translate(-1px, 0) skewX(6deg);
+  }
+  96%{
+    transform: translate(0, 0) skewX(0deg);
+    filter: hue-rotate(35deg);
+  }
 }
