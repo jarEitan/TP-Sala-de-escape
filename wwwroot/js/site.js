@@ -1,24 +1,76 @@
-﻿import { CRTFilterWebGL } from './CRTFilterWebGL.js';
+﻿var mensaje = document.getElementById("mensaje");
+if (mensaje) { mensaje.innerHTML = ""; mensaje.style.display = "none"; }
 
-const canvas = document.getElementById("general");
-const config = {
-    barrelDistortion: 0.001, // Simulates CRT screen curvature
-    curvature: 0.002, // Adjusts the amount of CRT screen curvature
-    chromaticAberration: 0.0005, // Slightly separates RGB colors for a realistic effect
-    staticNoise: 0.001, // Adds static noise to the image
-    horizontalTearing: 0.00012, // Simulates horizontal distortion in a faulty screen
-    glowBloom: 0.001, // Simulates the glow of CRT pixels
-    verticalJitter: 0.001, // Makes the image slightly oscillate vertically
-    retraceLines: true, // Adds CRT refresh lines
-    scanlineIntensity: 0.6, // Adjusts scanline intensity
-    dotMask: false, // Simulates the pixel structure of a CRT screen
-    motionBlur: 0, // Simulates motion blur (currently not implemented)
-    brightness: 0.9, // Adjusts screen brightness
-    contrast: 1.0, // Adjusts image contrast
-    desaturation: 0.2, // Reduces color saturation for a faded effect
-    flicker: 0.01, // Simulates occasional flicker on a CRT screen
-    signalLoss: 0.05 // Simulates VHS or UHF signal loss artifacts
-};
+function _showMensaje(text) {
+    var el = document.getElementById("mensaje");
+    if (!el) return;
+    el.innerHTML = text;
+    el.style.display = "block";
+}
 
-const crtEffect = new CRTFilterWebGL(canvas, config);
-crtEffect.start();
+function _hideMensaje() {
+    var el = document.getElementById("mensaje");
+    if (!el) return;
+    el.innerHTML = "";
+    el.style.display = "none";
+}
+
+function isTurnstileAvailable() {
+    return !!document.querySelector('textarea[name="cf-turnstile-response"], input[name="cf-turnstile-response"]');
+}
+
+function getTurnstileResponse() {
+    var el = document.querySelector('textarea[name="cf-turnstile-response"], input[name="cf-turnstile-response"]');
+    return el ? (el.value || '').trim() : '';
+}
+
+function validarCuenta() {
+    var usuario = document.getElementById("usuario") ? document.getElementById("usuario").value : "";
+    var contrasena = document.getElementById("contrasena") ? document.getElementById("contrasena").value : "";
+    if (usuario === "" || contrasena === "") {
+        _showMensaje("Por favor, complete todos los campos.");
+        return false;
+    }
+
+    var token = getTurnstileResponse();
+    if (!token) {
+        _showMensaje("Por favor, complete el captcha.");
+        return false;
+    }
+
+    _hideMensaje();
+    return true;
+}
+
+function validarRegistro() {
+    var nombreUsuario = document.getElementById("nombre") ? document.getElementById("nombre").value : "";
+    var contrasena = document.getElementById("contrasena") ? document.getElementById("contrasena").value : "";
+    var soloLetrasYNumeros = /^[a-zA-Z0-9]+$/;
+    var soloLetrasYEspacios = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
+    if (nombreUsuario === "" || contrasena === "") {
+        _showMensaje("Por favor, complete todos los campos.");
+        return false;
+    }
+    if (contrasena.length < 8) {
+        _showMensaje("La contraseña debe tener al menos 8 caracteres.");
+        return false;
+    }
+    if (nombreUsuario.length < 3) {
+        _showMensaje("El nombre de usuario debe tener al menos 3 caracteres.");
+        return false;
+    }
+    if (!soloLetrasYNumeros.test(nombreUsuario)) {
+        _showMensaje("El nombre de usuario solo puede contener letras y números, sin espacios ni caracteres especiales.");
+        return false;
+    }
+
+    var token = getTurnstileResponse();
+    if (!token) {
+        _showMensaje("Por favor, complete el captcha.");
+        return false;
+    }
+
+    _hideMensaje();
+    return true;
+}

@@ -7,24 +7,32 @@
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Sala_de_escape.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        
+        <nav>
+            <button class="button" type="button" onclick="location.href='@Url.Action("Index", "Home")'">Inicio</button>
+            <button class="button" type="button" onclick="location.href='@Url.Action("Nosotros", "Home")'">Nosotros</button>
+        </nav>
+        <nav class="nav2">
+            <button class="button iniciar" type="button" onclick="location.href='@Url.Action("Registrarse", "Home")'">Registrarse</button>
+            <button class="button iniciar" type="button" onclick="location.href='@Url.Action("IniciarSesion", "Home")'">Iniciar</button>
+        </nav>
     </header>
     <div>
         <main role="main" id="general">
             @RenderBody()
         </main>
     </div>
-
     <footer class="">
         
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
