@@ -7,13 +7,6 @@ function _showMensaje(text) {
     el.style.display = "block";
 }
 
-function _hideMensaje() {
-    var el = document.getElementById("mensaje");
-    if (!el) return;
-    el.innerHTML = "";
-    el.style.display = "none";
-}
-
 function isTurnstileAvailable() {
     return !!document.querySelector('textarea[name="cf-turnstile-response"], input[name="cf-turnstile-response"]');
 }
@@ -36,8 +29,6 @@ function validarCuenta() {
         _showMensaje("Por favor, complete el captcha.");
         return false;
     }
-
-    _hideMensaje();
     return true;
 }
 
@@ -69,8 +60,6 @@ function validarRegistro() {
         _showMensaje("Por favor, complete el captcha.");
         return false;
     }
-
-    _hideMensaje();
     return true;
 }
 

@@ -5,11 +5,66 @@
   text-shadow : 0  0  10px  #00ff00 ; 
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Workbench&display=swap');
+
+:root{
+  --crt__width: 100%;
+  --crt__height: 100%;
+  --crt-light__color-first: #002b00;
+  --crt-light__color-second: #000A00; 
+  --crt-linear__color: #003f0033;
+  --crt-linear__height: 5px;
+  --crt-scan__color: #1b631b66;
+  --crt-text__color: greenyellow;
+}
+
+/* Reset CSS */
 body{
-  color : #00ff00 ;
-  background :linear-gradient(to top, #000000 , #000000 , #333333 , #333333 ); 
-  background-size : cover; 
-  background-size : 100%  1px ;
+  background-color: #222;
+  font-family: "Workbench", sans-serif;
+}
+
+/* CRT Screen */
+.crt-screen{
+  width: var(--crt__width);
+  height: var(--crt__height);
+  background: repeating-linear-gradient(to bottom, transparent, transparent var(--crt-linear__height), var(--crt-linear__color) var(--crt-linear__height) , var(--crt-linear__color) calc(var(--crt-linear__height) * 2)),
+              radial-gradient(var(--crt-light__color-first), var(--crt-light__color-second));
+  color: var(--crt-text__color);
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* CRT Scan */
+.crt-screen::after{
+  content: "";
+  background: linear-gradient(to bottom, transparent, transparent 80%, var(--crt-scan__color) 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -100%;
+  animation: 3s linear 1s infinite;
+  animation-name: scan-line;
+  mix-blend-mode: color-burn;
+  z-index: -2;
+  left: 0;
+}
+
+.crt-screen p{
+  margin: 0.5rem;
+}
+
+/* CRT Scan Animation */
+@keyframes scan-line{
+  from{
+    top: -100%;
+  }
+
+  to{
+    top: 100%;
+  }
 }
 
 @keyframes scanlines { 
@@ -96,6 +151,7 @@ section{
 }
 
 .sectionNoEstilo{
+  display: ;
   border: none;
   border-radius: 25px;
   box-shadow: none;
