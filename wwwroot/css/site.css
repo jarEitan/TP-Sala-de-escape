@@ -44,7 +44,6 @@ header nav{
 
 header nav button{
   width: fit-content;
-  float: left;
   font-size: 200% !important;
   margin: 1%;
   padding: 1%;
@@ -94,6 +93,12 @@ section{
   border: 1px, solid, greenyellow;
   border-radius: 25px;
   box-shadow: 0px 0px 48px 11px rgba(171, 255, 46, 0.5);
+}
+
+.sectionNoEstilo{
+  border: none;
+  border-radius: 25px;
+  box-shadow: none;
 }
 
 section div{
@@ -178,4 +183,57 @@ section div{
     transform: translate(0, 0) skewX(0deg);
     filter: hue-rotate(35deg);
   }
+}
+
+.ventana-fondo{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.ventana-fondo.activo{
+  display: flex;
+}
+
+.ventana{
+  background: black;
+  border: 2px solid greenyellow;
+  border-radius: 25px;
+  box-shadow: 0px 0px 48px 11px rgba(171, 255, 46, 0.5);
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 70%;
+}
+
+.ventana h2{
+  color: #00ff00;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.ventana > div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.ventana button{
+  margin: 0 !important;
+  padding: 5%;
+  border: 1px, solid, greenyellow;
+  border-radius: 25px;
+  box-shadow: 0px 0px 48px 11px rgba(171,255,46,0.5);
 }

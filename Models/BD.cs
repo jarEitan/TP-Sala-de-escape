@@ -21,4 +21,19 @@ public class BD
         }
     }
 
+    public List<string> obtenerNombres()
+    {
+        using (var connection = new SqlConnection(connectionString))
+        {
+            return connection.Query<string>("SELECT nombre FROM Usuario").ToList();
+        }
+    }
+
+    public List<niveles> obtenerNivel(int id)
+    {
+        using (var connection = new SqlConnection(connectionString))
+        {
+            return connection.Query<niveles>("SELECT Nivel.ID, Nivel.nombre FROM [usuario | nivel] INNER join Nivel ON Nivel.ID = [usuario | nivel].[ID nivel] where [usuario | nivel].[ID usuario] = @id", new { id }).ToList();
+        }
+    }
 }

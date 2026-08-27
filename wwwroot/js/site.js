@@ -1,5 +1,4 @@
 ﻿var mensaje = document.getElementById("mensaje");
-if (mensaje) { mensaje.innerHTML = ""; mensaje.style.display = "none"; }
 
 function _showMensaje(text) {
     var el = document.getElementById("mensaje");
@@ -74,3 +73,31 @@ function validarRegistro() {
     _hideMensaje();
     return true;
 }
+
+// NUEVO: Modal de selección de salas
+document.addEventListener('DOMContentLoaded', function() {
+    var btnEntrar = document.getElementById('btnEntrar');
+    var modalSalas = document.getElementById('modalSalas');
+    var salaBtns = document.querySelectorAll('.salaBtn');
+
+    if (btnEntrar) {
+        btnEntrar.addEventListener('click', function() {
+            modalSalas.classList.add('activo');
+        });
+    }
+
+    salaBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var numero = this.getAttribute('data-numero');
+            window.location.href = '/Home/entrar?numero=' + numero;
+        });
+    });
+
+    if (modalSalas) {
+        modalSalas.addEventListener('click', function(event) {
+            if (event.target === modalSalas) {
+                modalSalas.classList.remove('activo');
+            }
+        });
+    }
+});

@@ -6,6 +6,34 @@
     <h1>UN DIA COMÚN</h1>
 </section>
 
+@{ var usuario = Context.Session.GetString("Nombre"); }
+@if (string.IsNullOrEmpty(usuario))
+{
+    <section class="sectionNoEstilo">
+        <button class="button" type="button" onclick="location.href='@Url.Action("Registrarse", "Home")'">Registrarse</button>
+        <button class="button" type="button" onclick="location.href='@Url.Action("IniciarSesion", "Home")'">Iniciar</button>
+    </section>
+}
+else
+{
+    <section class="sectionNoEstilo">
+        <button class="button" type="button" id="btnEntrar">Entrar</button>
+    </section>
+
+    <div id="modalSalas" class="ventana-fondo">
+        <div class="ventana">
+            <h2>Selecciona una Sala</h2>
+            <div>
+                <button class="button salaBtn" data-numero="1">1</button>
+                <button class="button salaBtn" data-numero="2">2</button>
+                <button class="button salaBtn" data-numero="3">3</button>
+                <button class="button salaBtn" data-numero="4">4</button>
+                <button class="button salaBtn" data-numero="5">5</button>
+                <button class="button salaBtn" data-numero="6">6</button>
+            </div>
+        </div>
+    </div>
+}
 
 
-    <button class="button" type="button" onclick="location.href='@Url.Action("Nosotros", "Home")'">EL EQUIPO</button>
+<button class="button" type="button" onclick="location.href='@Url.Action("Nosotros", "Home")'">EL EQUIPO</button>
