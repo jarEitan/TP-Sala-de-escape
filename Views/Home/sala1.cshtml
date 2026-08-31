@@ -2,4 +2,33 @@
     ViewData["Title"] = "sala 1";
 }
 
-<h2>Creadores</h2>
+<section class="fondo casa-sala1" id="0">
+    <div>
+        <h2>Otro dia común mas, son las 6:50 del 7 de agosto.</h2>
+        <button class="button" type="button" onclick="siguienteSala(1)">Empezar dia </button>
+    </div>
+</section>
+
+<section class="fondo cocina-sala1" id="1" style="display: none;">
+    <div>
+        <button class="button" type="button" onclick="siguienteSala(2)">Hacer café</button>
+        <h2>Hoy tenes una reunion importante, por eso te levantaste muy temprano, un café te ayudaria mucho.</h2>
+    </div>
+</section>
+
+<section class="fondo manual-sala1" id="2" style="display: none;">
+    <div>
+        <h2>Te compraste una cafetera nueva, pero no sabes como usarla, tenés que buscar la temperatura adecuada.</h2>
+        <div>
+            <input type="text" id="input" class="input-matrix" placeholder="Ingrese la temperatura">
+            <button class="button" type="button" onclick="validarTemperatura()">Probar</button>
+        </div>
+    </div>
+</section>
+
+<section class="fondo cocina-sala1" id="3" style="display: none;">
+    <div>
+        <button class="button" type="button" onclick="siguienteSala(2)">Hacer café</button>
+        <h2>akocho.</h2>
+    </div>
+</section>

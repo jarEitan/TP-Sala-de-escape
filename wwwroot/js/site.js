@@ -90,3 +90,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+function siguienteSala(numero) {
+    if(numero === 1) {
+        const fase1 = document.getElementById("0");
+        fase1.style.display = "none";
+        const fase2 = document.getElementById("1");
+        fase2.style.display = "flex";
+    } else if(numero === 2) {
+        const fase2 = document.getElementById("1");
+        fase2.style.display = "none";
+        const fase3 = document.getElementById("2");
+        fase3.style.display = "flex";
+    } else if(numero === 3) {
+        const fase2 = document.getElementById("2");
+        fase2.style.display = "none";
+        const fase3 = document.getElementById("3");
+        fase3.style.display = "flex";
+    }
+}
+
+function validarTemperatura(){
+    const temperaturaInput = document.getElementById("input").value;
+    if (temperaturaInput == 126) {
+        siguienteSala(3);
+    }
+}
