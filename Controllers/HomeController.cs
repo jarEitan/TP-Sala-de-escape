@@ -15,6 +15,21 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        BD bd = new BD();
+        List<int> niveles = new List<int>();
+        string? id = HttpContext.Session.GetString("ID");
+
+        if (!string.IsNullOrWhiteSpace(id) && int.TryParse(id, out int idUsuario))
+        {
+            niveles = bd.obtenerNivel(idUsuario);
+        }
+
+        if (niveles == null || niveles.Count == 0)
+        {
+            niveles.Add(1);
+        }
+
+        ViewBag.nivel = niveles;
         return View();
     }
 
@@ -40,7 +55,7 @@ public class HomeController : Controller
         HttpContext.Session.SetString("ID", cuenta.ID.ToString());
         HttpContext.Session.SetString("Nombre", cuenta.Nombre ?? string.Empty);
 
-        return View("Index");
+        return RedirectToAction("Index");
     }
 
     public IActionResult Registrarse()
@@ -60,19 +75,20 @@ public class HomeController : Controller
         } else {
             int resultado = bd.crearCuenta(cuenta);
         }
-        return View("Index");
+        return RedirectToAction("Index");
     }
 
     public IActionResult CerrarSesion()
     {
         HttpContext.Session.Clear();
-        return View("Index");
+        return RedirectToAction("Index");
     }
 
-    public IActionResult entrar(int? numero)
+    public IActionResult entrar(int numero)
     {
-        ViewBag.NumeroSala = numero ?? 0;
-        return View("sala1");
+        string num = numero.ToString();
+        string sala = "sala" + num;
+        return View(sala);
     }
     
 

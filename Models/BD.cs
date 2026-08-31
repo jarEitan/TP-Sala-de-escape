@@ -29,11 +29,11 @@ public class BD
         }
     }
 
-    public List<niveles> obtenerNivel(int id)
+    public List<int> obtenerNivel(int id)
     {
         using (var connection = new SqlConnection(connectionString))
         {
-            return connection.Query<niveles>("SELECT Nivel.ID, Nivel.nombre FROM [usuario | nivel] INNER join Nivel ON Nivel.ID = [usuario | nivel].[ID nivel] where [usuario | nivel].[ID usuario] = @id", new { id }).ToList();
+            return connection.Query<int>("select [usuario | nivel].[ID nivel] from Usuario INNER JOIN [usuario | nivel] ON [usuario | nivel].[ID usuario] = Usuario.ID where Usuario.ID = @id", new { id }).ToList();
         }
     }
 }
