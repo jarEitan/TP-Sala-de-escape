@@ -376,6 +376,18 @@ section div{
 .manual-sala1{
   background: url('/imagenes/manual-sala1.png') center center / cover no-repeat;
 }
+.puerta-sala1{
+  background: url('/imagenes/puerta-sala1.png') center center / cover no-repeat;
+}
+.calle-sala2{
+  background: url('/imagenes/calle-sala2.png') center center / cover no-repeat;
+}
+.vagabundo-sala2{
+  background: url('/imagenes/vagabundo-sala2.png') center center / cover no-repeat;
+}
+.puerta-sala2{
+  background: url('/imagenes/puerta-sala2.png') center center / cover no-repeat;
+}
 
 .input-matrix{
   width: 36%;

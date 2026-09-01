@@ -86,6 +86,8 @@ public class HomeController : Controller
 
     public IActionResult entrar(int numero)
     {
+        BD bd = new BD();
+        bd.pasarNivel(int.Parse(HttpContext.Session.GetString("ID") ?? "0"), numero);
         string num = numero.ToString();
         string sala = "sala" + num;
         return View(sala);

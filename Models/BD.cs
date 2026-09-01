@@ -36,4 +36,21 @@ public class BD
             return connection.Query<int>("select [usuario | nivel].[ID nivel] from Usuario INNER JOIN [usuario | nivel] ON [usuario | nivel].[ID usuario] = Usuario.ID where Usuario.ID = @id", new { id }).ToList();
         }
     }
+
+    public void pasarNivel(int idUsuario, int nuevoNivel)
+    {
+        bool nivelExistente = false;
+        using (var connection = new SqlConnection(connectionString))
+        {
+            nivelExistente = connection.Query<bool>("Select * from [usuario | nivel] where [ID usuario] = @idUsuario AND [ID nivel] = @nuevoNivel", new { idUsuario, nuevoNivel }).FirstOrDefault();
+        }
+
+        if (!nivelExistente)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                connection.Execute("INSERT INTO [usuario | nivel] ([ID usuario], [ID nivel]) VALUES (@idUsuario, @nuevoNivel)", new { idUsuario, nuevoNivel });
+            }
+        }
+    }
 }

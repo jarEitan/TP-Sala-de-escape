@@ -5,13 +5,13 @@
 <section class="fondo casa-sala1" id="0">
     <div>
         <h2>Otro dia común mas, son las 6:50 del 7 de agosto.</h2>
-        <button class="button" type="button" onclick="siguienteSala(1)">Empezar dia </button>
+        <button class="button" type="button" onclick="siguienteSala(0,1)">Empezar dia </button>
     </div>
 </section>
 
 <section class="fondo cocina-sala1" id="1" style="display: none;">
     <div>
-        <button class="button" type="button" onclick="siguienteSala(2)">Hacer café</button>
+        <button class="button" type="button" onclick="siguienteSala(1,2)">Hacer café</button>
         <h2>Hoy tenes una reunion importante, por eso te levantaste muy temprano, un café te ayudaria mucho.</h2>
     </div>
 </section>
@@ -26,9 +26,9 @@
     </div>
 </section>
 
-<section class="fondo cocina-sala1" id="3" style="display: none;">
+<section class="fondo puerta-sala1" id="3" style="display: none;">
     <div>
-        <button class="button" type="button" onclick="siguienteSala(2)">Hacer café</button>
-        <h2>akocho.</h2>
+        <h2>Ya desayunaste, estas listo para ir al trabajo.</h2>
+        <button class="button" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 2 })'">Seguir</button>
     </div>
 </section>

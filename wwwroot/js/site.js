@@ -91,28 +91,60 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function siguienteSala(numero) {
-    if(numero === 1) {
-        const fase1 = document.getElementById("0");
+function siguienteSala(numero, numero2) {
+        const fase1 = document.getElementById(numero);
         fase1.style.display = "none";
-        const fase2 = document.getElementById("1");
+        const fase2 = document.getElementById(numero2);
         fase2.style.display = "flex";
-    } else if(numero === 2) {
-        const fase2 = document.getElementById("1");
-        fase2.style.display = "none";
-        const fase3 = document.getElementById("2");
-        fase3.style.display = "flex";
-    } else if(numero === 3) {
-        const fase2 = document.getElementById("2");
-        fase2.style.display = "none";
-        const fase3 = document.getElementById("3");
-        fase3.style.display = "flex";
-    }
+
 }
 
 function validarTemperatura(){
     const temperaturaInput = document.getElementById("input").value;
-    if (temperaturaInput == 126) {
-        siguienteSala(3);
+    if (temperaturaInput == 96) {
+        siguienteSala(2,3);
+    } else{
+        document.getElementById("input").value = "";
+        // Cambiar color del placeholder
+        if (!document.getElementById('placeholder-error-style')) {
+            const style = document.createElement('style');
+            style.id = 'placeholder-error-style';
+            style.innerHTML = '#input::placeholder { color: #ff6b6b; }';
+            document.head.appendChild(style);
+        }
+    }
+}
+
+function abrirModal() {
+    const modal = document.getElementById("candado");
+    if (modal) {
+        modal.style.display = "flex";
+    }
+}
+
+function cerrarModal() {
+    const modal = document.getElementById("candado");
+    if (modal) {
+        modal.style.display = "none";
+        document.getElementById("inputCandado").value = "";
+    }
+}
+
+function verificarCandado() {
+    const codigoCandado = document.getElementById("inputCandado").value;
+    if (codigoCandado == "1234") {
+        alert("¡Candado abierto!");
+        cerrarModal();
+        siguienteSala(3, 4);
+    } else {
+        document.getElementById("inputCandado").value = "";
+        document.getElementById("inputCandado").placeholder = "Numero incorrecto";
+        // Cambiar color del placeholder
+        if (!document.getElementById('placeholder-error-style-candado')) {
+            const style = document.createElement('style');
+            style.id = 'placeholder-error-style-candado';
+            style.innerHTML = '#inputCandado::placeholder { color: #ff6b6b; }';
+            document.head.appendChild(style);
+        }
     }
 }
