@@ -425,3 +425,18 @@ section div{
   color: #f4ffb0;
   box-shadow: 0 0 0 0.3% rgba(171, 255, 46, 0.18), 0px 0px 22px 6px rgba(171,255,46,0.18);
 }
+
+.flechaArriba{
+  position: fixed;
+  bottom: 20%;
+  right: 60%;
+  width: 10%;
+  cursor: pointer;
+}
+.flechaAbajo{
+  position: fixed;
+  bottom: 5%;
+  right: 60%;
+  width: 10%;
+  cursor: pointer;
+}
