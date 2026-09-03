@@ -27,15 +27,31 @@
 </section>
 
 <section class="fondo puerta-sala2" id="3" style="display: none;">
-    <button class="button" type="button" onclick="abrirModal()">Probar numero</button>
-    <div id="candado" class="ventana-fondo" style="display: none;">
+    <button class="button" type="button" onclick="abrirModal('al')">Probar numero</button>
+    <div id="al" class="ventana-fondo" style="display: none;">
         <div class="ventana">
             <h2>Escribe la contraseña (4 numeros)</h2>
             <input type="text" id="inputCandado" class="input-matrix" placeholder="Ingresa el código" />
             <button class="button" type="button" onclick="verificarCandado()">Abrir</button>
-            <button class="button" type="button" onclick="cerrarModal()">Salir</button>
+            <button class="button" type="button" onclick="cerrarModal('al')">Salir</button>
         </div>
     </div>
-    <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba"/>
-    <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo"/>
+    <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba" onclick="siguienteSala(3,5)"/>
+    <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(3,4)"/>
+    
+    <img src="~/imagenes/recursos/papel.png" alt="abajo" class="papel" onclick="abrirModal('text')"/>
+    <div id="text" class="ventana-fondo" style="display: none;">
+        <div class="ventana">
+            <h2>Si alguien encuentra esta nota, recuerde la secuencia para los mandos antes de que corten la energía: el ciclo comienza con la bruma opaca de la ceniza acumulada, sigue descendiendo hacia las profundidades oscuras del océano, se adentra en la vegetación húmeda del musgo silvestre y termina en el matiz delicado de un pétalo de rosa. No olviden el orden o el sistema se bloqueará.</h2>
+            <button class="button" type="button" onclick="cerrarModal('text')">Salir</button>
+        </div>
+    </div>
+</section>
+
+<section class="fondo salaPuzle1-sala2" id="4" style="display: none;">
+    <img src="~/imagenes/recursos/flecha-izquierda.png" alt="arriba" class="flechaIzquierda" onclick="siguienteSala(4,3)"/>
+</section>
+
+<section class="fondo salaPuzle2-sala2" id="5" style="display: none;">
+    <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(5,3)"/>
 </section>

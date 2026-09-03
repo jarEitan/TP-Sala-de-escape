@@ -115,15 +115,15 @@ function validarTemperatura(){
     }
 }
 
-function abrirModal() {
-    const modal = document.getElementById("candado");
+function abrirModal(id) {
+    const modal = document.getElementById(id);
     if (modal) {
         modal.style.display = "flex";
     }
 }
 
-function cerrarModal() {
-    const modal = document.getElementById("candado");
+function cerrarModal(id) {
+    const modal = document.getElementById(id);
     if (modal) {
         modal.style.display = "none";
         document.getElementById("inputCandado").value = "";
@@ -132,7 +132,7 @@ function cerrarModal() {
 
 function verificarCandado() {
     const codigoCandado = document.getElementById("inputCandado").value;
-    if (codigoCandado == "1234") {
+    if (codigoCandado == "1045") {
         alert("¡Candado abierto!");
         cerrarModal();
         siguienteSala(3, 4);

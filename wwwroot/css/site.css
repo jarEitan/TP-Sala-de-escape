@@ -388,6 +388,12 @@ section div{
 .puerta-sala2{
   background: url('/imagenes/puerta-sala2.png') center center / cover no-repeat;
 }
+.salaPuzle1-sala2{
+  background: url('/imagenes/salaPuzle1-sala2.png') center center / cover no-repeat;
+}
+.salaPuzle2-sala2{
+  background: url('/imagenes/salaPuzle2-sala2.png') center center / cover no-repeat;
+}
 
 .input-matrix{
   width: 36%;
@@ -429,14 +435,28 @@ section div{
 .flechaArriba{
   position: fixed;
   bottom: 20%;
-  right: 60%;
+  right: 45%;
   width: 10%;
   cursor: pointer;
 }
 .flechaAbajo{
   position: fixed;
   bottom: 5%;
+  right: 45%;
+  width: 10%;
+  cursor: pointer;
+}
+.flechaIzquierda{
+  position: fixed;
+  bottom: 5%;
   right: 60%;
+  width: 5%;
+  cursor: pointer;
+}
+.papel{
+  position: fixed;
+  bottom: 5%;
+  right: 30%;
   width: 10%;
   cursor: pointer;
 }
