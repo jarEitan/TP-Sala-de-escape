@@ -394,6 +394,18 @@ section div{
 .salaPuzle2-sala2{
   background: url('/imagenes/salaPuzle2-sala2.png') center center / cover no-repeat;
 }
+.entrada-sala3{
+  background: url('/imagenes/entrada-sala3.png') center center / cover no-repeat;
+}
+.cubiculos-sala3{
+  background: url('/imagenes/cubiculos-sala3.png') center center / cover no-repeat;
+}
+.archivo-sala3{
+  background: url('/imagenes/archivo-sala3.png') center center / cover no-repeat;
+}
+.jefe-sala3{
+  background: url('/imagenes/jefe-sala3.png') center center / cover no-repeat;
+}
 
 .input-matrix{
   width: 36%;
@@ -450,6 +462,13 @@ section div{
   position: fixed;
   bottom: 5%;
   right: 60%;
+  width: 5%;
+  cursor: pointer;
+}
+.flechaDerecha{
+  position: fixed;
+  bottom: 5%;
+  right: 40%;
   width: 5%;
   cursor: pointer;
 }

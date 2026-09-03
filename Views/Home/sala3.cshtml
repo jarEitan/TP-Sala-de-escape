@@ -2,9 +2,31 @@
     ViewData["Title"] = "sala 3";
 }
 
-<section class="fondo calle-sala2" id="0">
+<section class="fondo entrada-sala3" id="0">
     <div>
-        <h2>Estoy yendo al trabajo, falta poco.</h2>
-        <button class="button" type="button" onclick="siguienteSala(0,1)">Empezar dia </button>
+        <h2>Tengo que buscar los documentos que tengo que presentarle a los inversionistas.</h2>
+        <button class="button" type="button" onclick="siguienteSala(0,1)">Buscar</button>
+    </div>
+</section>
+<section class="fondo entrada-sala3" id="1" style="display: none;">
+    <div>
+    <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba" onclick="siguienteSala(1,2)"/>
+    </div>
+</section>
+<section class="fondo cubiculos-sala3" id="2" style="display: none;">
+    <div>
+    <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba" onclick="siguienteSala(2,3)"/>
+    <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(2,1)"/>
+    <img src="~/imagenes/recursos/flecha-derecha.png" alt="arriba" class="flechaDerecha" onclick="siguienteSala(2,4)"/>
+    </div>
+</section>
+<section class="fondo archivo-sala3" id="3" style="display: none;">
+    <div>
+    <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(3,2)"/>
+    </div>
+</section>
+<section class="fondo jefe-sala3" id="4" style="display: none;">
+    <div>
+    <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(4,2)"/>
     </div>
 </section>
