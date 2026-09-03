@@ -148,3 +148,10 @@ function verificarCandado() {
         }
     }
 }
+
+function activarInventario() {
+    const inventario = document.getElementById("inventario");
+    if (inventario) {
+        inventario.style.display = "flex";
+    }
+}

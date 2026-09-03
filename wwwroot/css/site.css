@@ -479,3 +479,47 @@ section div{
   width: 10%;
   cursor: pointer;
 }
+.Inventario{
+  text-align: center;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  top: 12%;
+  left: 2%;
+  width: fit-content;
+  z-index: 10;
+  background-color: black;
+}
+.Inventario div{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  width: fit-content;
+  margin: 1%;
+  padding: 1%;
+  border: 1px, solid, greenyellow;
+  border-radius: 25px;
+  box-shadow: none;
+  width: 98% !important; 
+}
+.Inventario div button{
+  width: 80%;
+  font-size: 100% !important;
+  margin: 1%;
+  padding: 1%;
+  border: 1px, solid, greenyellow;
+  border-radius: 0px;
+  box-shadow: none;
+  text-align: center;
+  background-color: #00ff00;
+  color : black;
+}
+
+.Inventario div button:hover{
+  background-color: #071107;
+  box-shadow: none;
+  color : #00ff00;
+}
