@@ -55,3 +55,10 @@
 <section class="fondo salaPuzle2-sala2" id="5" style="display: none;">
     <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(5,3)"/>
 </section>
+
+<section class="fondo salaPuzle2-sala2" id="6" style="display: none;">
+    <div class="ventana">
+        <h2>Finalmente lograste entrar en la oficina.</h2>
+        <button class="button" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 3 })'">Seguir</button>
+    </div>
+</section>

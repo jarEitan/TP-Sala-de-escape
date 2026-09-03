@@ -135,7 +135,7 @@ function verificarCandado() {
     if (codigoCandado == "1045") {
         alert("¡Candado abierto!");
         cerrarModal();
-        siguienteSala(3, 4);
+        siguienteSala(3, 6);
     } else {
         document.getElementById("inputCandado").value = "";
         document.getElementById("inputCandado").placeholder = "Numero incorrecto";
