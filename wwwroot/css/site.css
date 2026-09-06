@@ -320,6 +320,57 @@ section div{
   text-decoration: none;
 }
 
+.ventanaCaja{
+  padding: 2%;
+  gap: 12px;
+}
+
+.cajaContenido{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+}
+
+.cajaInputs{
+  width: 58%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.cajaInputs .input-matrix{
+  width: 25%;
+  min-width: 0;
+  margin: 0;
+  padding: 1% 2%;
+  font-size: 80%;
+}
+
+.cajaContenido .caja{
+  width: 24%;
+  max-width: 140px;
+  height: auto;
+}
+
+.cajaAcciones{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cajaAcciones .button{
+  align-self: center;
+  font-size: 100%;
+  padding: 1% 2%;
+}
+
+
 .fondo{
   display: flex;
   flex-wrap: wrap;
@@ -479,24 +530,30 @@ section div{
   width: 10%;
   cursor: pointer;
 }
-.Inventario{
+.inventario{
   text-align: center;
   position: fixed;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  align-content: center;
+  justify-content: center;
   top: 12%;
   left: 2%;
   width: fit-content;
   z-index: 10;
   background-color: black;
+  width: 12%;
+  font-size: 80%;
 }
-.Inventario div{
+.inventario div{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
   align-content: center;
+  justify-content: center;
   width: fit-content;
   margin: 1%;
   padding: 1%;
@@ -505,21 +562,62 @@ section div{
   box-shadow: none;
   width: 98% !important; 
 }
-.Inventario div button{
+.inventario div button{
   width: 80%;
   font-size: 100% !important;
-  margin: 1%;
+  margin: 1% auto;
   padding: 1%;
   border: 1px, solid, greenyellow;
-  border-radius: 0px;
+  border-radius: 5px;
   box-shadow: none;
   text-align: center;
   background-color: #00ff00;
   color : black;
 }
 
-.Inventario div button:hover{
+.inventario div button:hover{
   background-color: #071107;
   box-shadow: none;
   color : #00ff00;
+}
+
+.inventario img{
+  width: 80%;
+  margin: 0 auto;
+  padding: 0%;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.filtro{
+  position: fixed;
+  bottom: 25%;
+  left: 15%;
+  width: 12%;
+  cursor: pointer;
+}
+
+.tarjeta{
+  position: fixed;
+  bottom: 30%;
+  right: 40%;
+  width: 15%;
+  cursor: pointer;
+}
+
+.botonMonitor{
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  font-size: 80%;
+  cursor: pointer;
+}
+
+.ventanaMonitor{
+  z-index: 1001;
+  position: fixed;
+  top: 20%;
+  width: 50%;
+  max-width: 600px;
 }

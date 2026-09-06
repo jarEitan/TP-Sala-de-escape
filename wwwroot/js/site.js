@@ -1,4 +1,6 @@
 ﻿var mensaje = document.getElementById("mensaje");
+var salaActiva = 1;
+var pestañaActiva;
 
 function _showMensaje(text) {
     var el = document.getElementById("mensaje");
@@ -64,26 +66,26 @@ function validarRegistro() {
 }
 
 // NUEVO: Modal de selección de salas
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var btnEntrar = document.getElementById('btnEntrar');
     var modalSalas = document.getElementById('modalSalas');
     var salaBtns = document.querySelectorAll('.salaBtn');
 
     if (btnEntrar) {
-        btnEntrar.addEventListener('click', function() {
+        btnEntrar.addEventListener('click', function () {
             modalSalas.classList.add('activo');
         });
     }
 
-    salaBtns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
+    salaBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
             var numero = this.getAttribute('data-numero');
             window.location.href = '/Home/entrar?numero=' + numero;
         });
     });
 
     if (modalSalas) {
-        modalSalas.addEventListener('click', function(event) {
+        modalSalas.addEventListener('click', function (event) {
             if (event.target === modalSalas) {
                 modalSalas.classList.remove('activo');
             }
@@ -92,18 +94,18 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function siguienteSala(numero, numero2) {
-        const fase1 = document.getElementById(numero);
-        fase1.style.display = "none";
-        const fase2 = document.getElementById(numero2);
-        fase2.style.display = "flex";
-
+    const fase1 = document.getElementById(numero);
+    fase1.style.display = "none";
+    const fase2 = document.getElementById(numero2);
+    fase2.style.display = "flex";
+    salaActiva = numero2;
 }
 
-function validarTemperatura(){
+function validarTemperatura() {
     const temperaturaInput = document.getElementById("input").value;
     if (temperaturaInput == 96) {
-        siguienteSala(2,3);
-    } else{
+        siguienteSala(2, 3);
+    } else {
         document.getElementById("input").value = "";
         // Cambiar color del placeholder
         if (!document.getElementById('placeholder-error-style')) {
@@ -119,6 +121,7 @@ function abrirModal(id) {
     const modal = document.getElementById(id);
     if (modal) {
         modal.style.display = "flex";
+        pestañaActiva = id; // Guardar la pestaña activa
     }
 }
 
@@ -126,7 +129,11 @@ function cerrarModal(id) {
     const modal = document.getElementById(id);
     if (modal) {
         modal.style.display = "none";
-        document.getElementById("inputCandado").value = "";
+        const inputCandado = document.getElementById("inputCandado");
+        if (inputCandado) {
+            inputCandado.value = "";
+        }
+        pestañaActiva = null; // Limpiar la pestaña activa al cerrar el modal
     }
 }
 
@@ -153,5 +160,60 @@ function activarInventario() {
     const inventario = document.getElementById("inventario");
     if (inventario) {
         inventario.style.display = "flex";
+    }
+}
+
+function agarrarItem(itemId, invId) {
+    const item = document.getElementById(itemId);
+    const inventario = document.getElementById(invId);
+    if (item && inventario) {
+        item.style.display = "none";
+        inventario.style.display = "flex";
+    }
+}
+
+function usarFiltro() {
+    const item = document.getElementById("filtro");
+    const monitor = document.getElementById("monitor-visible");
+    const monitorEscondido = document.getElementById("monitor-escondido");
+    if (pestañaActiva === "monitor" && item && monitor && monitorEscondido) {
+        item.style.display = "none";
+        monitorEscondido.style.display = "none";
+        monitor.style.display = "flex";
+    }
+}
+
+function usarTarjeta() {
+    const item = document.getElementById("tarjeta");
+    const caja = document.getElementById("botonCaja");
+    if (item && salaActiva == 4) {
+        item.style.display = "none";
+        caja.style.display = "block";
+    }
+}
+
+function verificarCaja() {
+    const inputCaja1 = document.getElementById("inputCaja1");
+    const inputCaja2 = document.getElementById("inputCaja2");
+    const inputCaja3 = document.getElementById("inputCaja3");
+
+    if (!inputCaja1 || !inputCaja2 || !inputCaja3) {
+        return;
+    }
+
+    const codigoCaja1 = inputCaja1.value.trim();
+    const codigoCaja2 = inputCaja2.value.trim();
+    const codigoCaja3 = inputCaja3.value.trim();
+
+    if (codigoCaja1 == "45" && codigoCaja2 == "19" && codigoCaja3 == "34") {
+        alert("¡Caja abierta!");
+        cerrarModal("caja");
+    } else {
+        inputCaja1.value = "";
+        inputCaja2.value = "";
+        inputCaja3.value = "";
+        inputCaja1.placeholder = "Numero incorrecto";
+        inputCaja2.placeholder = "Numero incorrecto";
+        inputCaja3.placeholder = "Numero incorrecto";
     }
 }
