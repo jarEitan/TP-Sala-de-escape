@@ -196,6 +196,8 @@ function verificarCaja() {
     const inputCaja1 = document.getElementById("inputCaja1");
     const inputCaja2 = document.getElementById("inputCaja2");
     const inputCaja3 = document.getElementById("inputCaja3");
+    const carpeta = document.getElementById("carpeta");
+    const botonSalir = document.getElementById("botonSalir");
 
     if (!inputCaja1 || !inputCaja2 || !inputCaja3) {
         return;
@@ -208,6 +210,8 @@ function verificarCaja() {
     if (codigoCaja1 == "45" && codigoCaja2 == "19" && codigoCaja3 == "34") {
         alert("¡Caja abierta!");
         cerrarModal("caja");
+        carpeta.style.display = "flex";
+        botonSalir.style.display = "block";
     } else {
         inputCaja1.value = "";
         inputCaja2.value = "";

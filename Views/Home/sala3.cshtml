@@ -20,12 +20,17 @@
         <img src="~/imagenes/recursos/tarjeta-perforada.png" alt="tarjeta perforada" class="item" />
         <button class="button" type="button" onclick="usarTarjeta()">Usar</button>
     </div>
+    <div id="carpeta" style="display: none;">
+        <p>Carpeta</p>
+        <img src="~/imagenes/recursos/carpeta.png" alt="carpeta" class="item" />
+    </div>
 </section>
 <section class="fondo entrada-sala3" id="1" style="display: none;">
     <div>
         <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba"
              onclick="siguienteSala(1,2)" />
     </div>
+    <button id="botonSalir" class="button" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 4 })'" style="display: none;">Salir de la oficina</button>
 </section>
 <section class="fondo cubiculos-sala3" id="2" style="display: none;">
     <div>
