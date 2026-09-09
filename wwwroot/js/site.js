@@ -221,3 +221,75 @@ function verificarCaja() {
         inputCaja3.placeholder = "Numero incorrecto";
     }
 }
+
+// Bate/guard handlers
+var bateUsed = false;
+var guardKillCount = 0;
+
+function isBateInInventory() {
+    var inv = document.getElementById('bate');
+    if (!inv) return false;
+    return window.getComputedStyle(inv).display !== 'none';
+}
+
+function usarBate() {
+    var inv = document.getElementById('bate');
+    if (!inv) return;
+    // If bate is in inventory, use it: remove from inventory and enable bateUsed
+    if (window.getComputedStyle(inv).display !== 'none') {
+        inv.style.display = 'none';
+        bateUsed = true;
+    }
+}
+
+function handleSmithClick(id) {
+    // id is 'smith1' or 'smith2'
+    var guardImg = document.querySelector('img.' + id);
+    if (bateUsed) {
+        // kill the guard: play fall animation, hide modal, increment counter after animation
+        if (guardImg) {
+            // ensure no further clicks
+            guardImg.style.pointerEvents = 'none';
+            guardImg.classList.add('guard-fall');
+            // after animation, mark as fallen and count
+            var onEnd = function () {
+                guardImg.classList.remove('guard-fall');
+                guardImg.classList.add('guard-fallen');
+                guardImg.removeEventListener('animationend', onEnd);
+                guardKillCount += 1;
+                checkShowArrow();
+            };
+            guardImg.addEventListener('animationend', onEnd);
+        } else {
+            // no image found, still increment
+            guardKillCount += 1;
+            checkShowArrow();
+        }
+        var modal = document.getElementById(id);
+        if (modal) modal.style.display = 'none';
+    } else {
+        // no bate used: open the modal as before
+        abrirModal(id);
+    }
+}
+
+function checkShowArrow() {
+    if (guardKillCount >= 2) {
+        var flecha = document.getElementById('flecha');
+        if (flecha) {
+            flecha.style.display = 'flex';
+        }
+    }
+}
+
+// Attach handlers after DOM ready to override inline onclicks
+document.addEventListener('DOMContentLoaded', function () {
+    var s1 = document.querySelector('img.smith1');
+    var s2 = document.querySelector('img.smith2');
+    if (s1) {
+        s1.onclick = function (e) { handleSmithClick('smith1'); };
+    }
+    if (s2) {
+        s2.onclick = function (e) { handleSmithClick('smith2'); };
+    }
+});

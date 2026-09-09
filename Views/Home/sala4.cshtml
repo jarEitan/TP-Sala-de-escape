@@ -17,7 +17,9 @@
 </section>
 
 <section class="fondo disparo-sala4" id="2" style="display: none;">
-    <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
+    @if (Context.Session.GetString("salida") == "true"){
+        <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
+    }
     <div>
         <h2>El hombre dice que los documentos que tengo son clasificados. Quiere que se los entregue.</h2>
         <div class="eleccion">
@@ -28,7 +30,9 @@
 </section>
 
 <section class="fondo disparo2-sala4" id="3" style="display: none;">
-    <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
+    @if (Context.Session.GetString("salida") == "true"){
+        <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
+    }
     <div>
         <h2>El hombre dice que los documentos que tengo son clasificados. Quiere que se los entregue.</h2>
         <div class="eleccion">

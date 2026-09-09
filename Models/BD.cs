@@ -9,7 +9,7 @@ public class BD
     {
         using (var connection = new SqlConnection(connectionString))
         {
-            return connection.Execute("INSERT INTO Usuario (nombre, contraseña, salida) VALUES (@Nombre, @Contraseña, false)", cuenta);
+            return connection.Execute("INSERT INTO Usuario (nombre, contraseña, salida) VALUES (@Nombre, @Contraseña, 'false')", cuenta);
         }
     }
 

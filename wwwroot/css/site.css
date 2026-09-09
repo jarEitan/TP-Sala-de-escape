@@ -496,6 +496,9 @@ section div{
 .catacumba-sala5{
   background: url('/imagenes/catacumba-sala5.jfif') center center / cover no-repeat;
 }
+.matrixtoteles-sala5{
+  background: url('/imagenes/matrixtoteles-sala5.jfif') center center / cover no-repeat;
+}
 
 .input-matrix{
   width: 36%;
@@ -724,4 +727,42 @@ form div{
   width: 10%;
   rotate: -60deg;
   cursor: pointer;
+}
+.bate{
+  position: fixed;
+  bottom: 8%;
+  right: 15%;
+  width: 10%;
+  rotate: -60deg;
+  cursor: pointer;
+}
+.smith1{
+  position: fixed;
+  bottom: 15%;
+  right: 52%;
+  width: 8%;
+}
+.smith2{
+  position: fixed;
+  bottom: 15%;
+  right: 42%;
+  width: 8%;
+}
+
+/* Guard fall animation */
+@keyframes guardFall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  60% { transform: translateY(90px) rotate(30deg); opacity: 0.98; }
+  100% { transform: translateY(120px) rotate(90deg); opacity: 0.95; }
+}
+
+.guard-fall{
+  animation: guardFall 800ms ease-in forwards;
+  pointer-events: none;
+}
+
+.guard-fallen{
+  transform: translateY(120px) rotate(90deg);
+  opacity: 0.95;
+  pointer-events: none;
 }
