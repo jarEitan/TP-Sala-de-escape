@@ -9,7 +9,7 @@ public class BD
     {
         using (var connection = new SqlConnection(connectionString))
         {
-            return connection.Execute("INSERT INTO Usuario (nombre, contraseña) VALUES (@Nombre, @Contraseña)", cuenta);
+            return connection.Execute("INSERT INTO Usuario (nombre, contraseña, salida) VALUES (@Nombre, @Contraseña, false)", cuenta);
         }
     }
 
@@ -51,6 +51,14 @@ public class BD
             {
                 connection.Execute("INSERT INTO [usuario | nivel] ([ID usuario], [ID nivel]) VALUES (@idUsuario, @nuevoNivel)", new { idUsuario, nuevoNivel });
             }
+        }
+    }
+
+    public void actualizarSalida(int idUsuario)
+    {
+        using (var connection = new SqlConnection(connectionString))
+        {
+            connection.Execute("UPDATE Usuario SET salida = @salida WHERE ID = @idUsuario", new { salida = true, idUsuario });
         }
     }
 }

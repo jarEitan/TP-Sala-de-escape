@@ -54,6 +54,7 @@ public class HomeController : Controller
         }
         HttpContext.Session.SetString("ID", cuenta.ID.ToString());
         HttpContext.Session.SetString("Nombre", cuenta.Nombre ?? string.Empty);
+        HttpContext.Session.SetString("salida", cuenta.Salida.ToString());
 
         return RedirectToAction("Index");
     }
@@ -98,5 +99,14 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    public IActionResult salida()
+    {
+        BD bd = new BD();
+        bd.actualizarSalida(int.Parse(HttpContext.Session.GetString("ID")));
+        HttpContext.Session.SetString("salida", "True");
+
+        return View("sala1");
     }
 }

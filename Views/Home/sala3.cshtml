@@ -21,11 +21,12 @@
         <button class="button" type="button" onclick="usarTarjeta()">Usar</button>
     </div>
     <div id="carpeta" style="display: none;">
-        <p>Carpeta</p>
+        <p>Carpeta SUPER DUPER MEGA ULTRA HIPER SECRETA</p>
         <img src="~/imagenes/recursos/carpeta.png" alt="carpeta" class="item" />
     </div>
 </section>
 <section class="fondo entrada-sala3" id="1" style="display: none;">
+    <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     <div>
         <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba"
              onclick="siguienteSala(1,2)" />
@@ -54,14 +55,14 @@
     </div>
 </section>
 <section class="fondo archivo-sala3" id="3" style="display: none;">
+    <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     <div>
-        <img src="~/imagenes/recursos/tarjeta-perforada.png" alt="tarjeta perforada" class="tarjeta" id="tarjeta-item"
-             onclick="agarrarItem('tarjeta-item', 'tarjeta')" />
-
+        <img src="~/imagenes/recursos/tarjeta-perforada.png" alt="tarjeta perforada" class="tarjeta" id="tarjeta-item" onclick="agarrarItem('tarjeta-item', 'tarjeta')" />
         <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(3,2)" />
     </div>
 </section>
 <section class="fondo jefe-sala3" id="4" style="display: none;">
+    <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta2" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     <div>
         <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(4,2)" />
     </div>

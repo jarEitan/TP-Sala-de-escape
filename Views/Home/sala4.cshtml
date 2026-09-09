@@ -4,7 +4,7 @@
 
 <section class="fondo calle-sala4" id="0">
     <div>
-        <h2>Ya tengo los documentos que necesito. Ahora tengo que entregarlos a mi jefe.</h2>
+        <h2>Ya tengo los documentos que necesito. Ahora tengo que entregarlos.</h2>
         <button class="button" type="button" onclick="siguienteSala(0,1)">Seguir</button>
     </div>
 </section>
@@ -17,8 +17,31 @@
 </section>
 
 <section class="fondo disparo-sala4" id="2" style="display: none;">
+    <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     <div>
-        <h2>Ya tengo los documentos que necesito. Ahora tengo que entregarlos a mi jefe.</h2>
-        <button class="button" type="button" onclick="siguienteSala(0,1)">Seguir</button>
+        <h2>El hombre dice que los documentos que tengo son clasificados. Quiere que se los entregue.</h2>
+        <div class="eleccion">
+            <button class="button" type="button" onclick="siguienteSala(2,4)">Pelear</button>
+            <button class="button" type="button" onclick="siguienteSala(2,4)">Entregarselos</button>
+        </div>
+    </div>
+</section>
+
+<section class="fondo disparo2-sala4" id="3" style="display: none;">
+    <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
+    <div>
+        <h2>El hombre dice que los documentos que tengo son clasificados. Quiere que se los entregue.</h2>
+        <div class="eleccion">
+            <button class="button" type="button" onclick="siguienteSala(3,4)">Pelear</button>
+            <button class="button" type="button" onclick="siguienteSala(3,4)">Entregarselos</button>
+        </div>
+    </div>
+</section>
+
+<section class="fondo negro" id="4" style="display: none;">
+    <img src="~/imagenes/recursos/grietaBlanca.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
+    <h2>Quizá lo pueda hacer mejor.</h2>
+    <div>
+       <button class="button" type="button" onclick="location.href='@Url.Action("salida", "Home")'">Seguir</button>
     </div>
 </section>

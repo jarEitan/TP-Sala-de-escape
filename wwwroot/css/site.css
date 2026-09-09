@@ -7,6 +7,29 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Workbench&display=swap');
 
+/* Transición de entrada - Fundido de negro a transparente */
+@keyframes fadeInFromBlack {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.catacumba-sala5::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  animation: fadeInFromBlack 3s ease-in-out forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
 :root{
   --crt__width: 100%;
   --crt__height: 100%;
@@ -418,14 +441,16 @@ section div{
   border: none;
 }
 
+
+.negro{
+  background-color: black;
+}
 .casa-sala1{
   background: url('/imagenes/casa-sala1.png') center center / cover no-repeat;
 }
-
 .cocina-sala1{
   background: url('/imagenes/cocina-sala1.png') center center / cover no-repeat;
 }
-
 .manual-sala1{
   background: url('/imagenes/manual-sala1.png') center center / cover no-repeat;
 }
@@ -464,6 +489,12 @@ section div{
 }
 .disparo-sala4{
   background: url('/imagenes/disparo-sala4.png') center center / cover no-repeat;
+}
+.disparo2-sala4{
+  background: url('/imagenes/disparo2-sala4.jfif') center center / cover no-repeat;
+}
+.catacumba-sala5{
+  background: url('/imagenes/catacumba-sala5.jfif') center center / cover no-repeat;
 }
 
 .input-matrix{
@@ -668,4 +699,29 @@ form div{
 
 .eleccion button{
   font-size: 200%;
+}
+
+.grieta{
+  position: fixed;
+  bottom: 50%;
+  right: 10%;
+  width: 10%;
+  rotate: -50deg;
+  cursor: pointer;
+}
+.grieta2{
+  position: fixed;
+  bottom: 30%;
+  right: 10%;
+  width: 10%;
+  rotate: -70deg;
+  cursor: pointer;
+}
+.grieta3{
+  position: fixed;
+  bottom: 25%;
+  right: 45%;
+  width: 10%;
+  rotate: -60deg;
+  cursor: pointer;
 }
