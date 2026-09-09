@@ -16,7 +16,7 @@
         <button class="button" type="button" onclick="siguienteSala(1,2)">Dar moneda</button>
         <button class="button" type="button" onclick="siguienteSala(1,2)">Seguir de largo</button>
         </div>
-        @if (Context.Session.GetString("salida") == "true"){
+        @if (Context.Session.GetString("salida") == "True"){
             <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
         }
     </div>
@@ -57,7 +57,7 @@
 
 <section class="fondo salaPuzle2-sala2" id="5" style="display: none;">
     <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(5,3)"/>
-    @if (Context.Session.GetString("salida") == "true"){
+    @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
 </section>

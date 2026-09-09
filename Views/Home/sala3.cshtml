@@ -26,7 +26,7 @@
     </div>
 </section>
 <section class="fondo entrada-sala3" id="1" style="display: none;">
-    @if (Context.Session.GetString("salida") == "true"){
+    @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
     <div>
@@ -57,7 +57,7 @@
     </div>
 </section>
 <section class="fondo archivo-sala3" id="3" style="display: none;">
-    @if (Context.Session.GetString("salida") == "true"){
+    @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
     <div>
@@ -66,7 +66,7 @@
     </div>
 </section>
 <section class="fondo jefe-sala3" id="4" style="display: none;">
-    @if (Context.Session.GetString("salida") == "true"){
+    @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta2" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
     <div>

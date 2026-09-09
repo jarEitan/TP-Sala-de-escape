@@ -17,7 +17,7 @@
 </section>
 
 <section class="fondo disparo-sala4" id="2" style="display: none;">
-    @if (Context.Session.GetString("salida") == "true"){
+    @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
     <div>
@@ -30,7 +30,7 @@
 </section>
 
 <section class="fondo disparo2-sala4" id="3" style="display: none;">
-    @if (Context.Session.GetString("salida") == "true"){
+    @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
     <div>
@@ -43,7 +43,9 @@
 </section>
 
 <section class="fondo negro" id="4" style="display: none;">
-    <img src="~/imagenes/recursos/grietaBlanca.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
+    @if (Context.Session.GetString("salida") == "True"){
+        <img src="~/imagenes/recursos/grietaBlanca.png" alt="grieta" class="grieta3" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
+    }
     <h2>Quizá lo pueda hacer mejor.</h2>
     <div>
        <button class="button" type="button" onclick="location.href='@Url.Action("salida", "Home")'">Seguir</button>

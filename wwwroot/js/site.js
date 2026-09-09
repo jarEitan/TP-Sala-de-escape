@@ -101,6 +101,13 @@ function siguienteSala(numero, numero2) {
     salaActiva = numero2;
 }
 
+function fallarMatrixtoteles(origen) {
+    siguienteSala(origen, 99);
+    setTimeout(function () {
+        siguienteSala(99, 100);
+    }, 4000);
+}
+
 function validarTemperatura() {
     const temperaturaInput = document.getElementById("input").value;
     if (temperaturaInput == 96) {

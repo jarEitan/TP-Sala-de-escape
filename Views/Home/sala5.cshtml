@@ -39,12 +39,5 @@
     </div>
 
 
-    <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba" id="flecha" onclick="siguienteSala(0,1)" style="display: none;"/>
-</section>
-
-<section class="fondo matrixtoteles-sala5" id="1" style="display: none;">
-    <div>
-        <h2>YO SOY MATRIXTOTELES, EL SABIO QUE TODOS LOS SECRETOS DE ESTE PLANO CONOSE Y YO CON TODA MI SABIDURIA TE PROBARË</h2>
-        <button class="button" type="button" onclick="siguienteSala(1,2)">Seguir</button>
-    </div>
+    <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba" id="flecha" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 6 })'" style="display: none;"/>
 </section>
