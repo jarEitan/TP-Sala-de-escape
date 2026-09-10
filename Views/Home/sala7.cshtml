@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "sala 7";
+}
+
+<section class="fondo pasillo-sala7" id="0">
+    <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba" onclick="siguienteSala(0,1)" />
+</section>
+
+<section class="fondo esposas-sala7" id="1" style="display: none;">
+    <div>
+        <h2>"Podrás frenarme acá, pero la ilusión ya se rompió. ¡Ya vi lo que hay del otro lado!"</h2>
+        <button class="button" type="button" onclick="siguienteSala(1,2)">Te atraparon</button>
+    </div>
+</section>
+
+<section class="fondo carcel-sala7" id="2" style="display: none;">
+
+<img src="~/imagenes/recursos/candado-carcel.png" alt="abajo" class="candado-carcel" onclick="abrirModal('candado')"/>
+    <div id="candado" class="ventana-fondo" style="display: none;">
+        <div class="ventana texto-org">
+            <h2>Escribe la contraseña (4 dígitos)</h2>
+            <input type="text" id="inputCandado" class="input-matrix" placeholder="Ingresa el código" />
+            <button class="button" type="button" onclick="verificarCandadoCarcel()">Abrir</button>
+            <button class="button" type="button" onclick="cerrarModal('candado')">Salir</button>
+        </div>
+    </div>
+
+    <img src="~/imagenes/recursos/papel.png" alt="abajo" class="papel" onclick="abrirModal('text')"/>
+    <div id="text" class="ventana-fondo" style="display: none;">
+        <div class="ventana texto-org">
+            <h2>JAJAJA, nuca vas a encontrar la convinacion, literalmente no existe, JAJAJA, tus posibilidades son negativas  --smith</h2>
+            <button class="button" type="button" onclick="cerrarModal('text')">Salir</button>
+        </div>
+    </div>
+</section>
+
+<section class="fondo salidaCarcel-sala7" id="3" style="display: none;">
+
+</section>

@@ -74,6 +74,7 @@
   100% { transform: translateY(120px) rotate(90deg); opacity: 0.95; }
 }
 
+.carcel-sala7::before,
 .matrixtoteles-sala5::before,
 .catacumba-sala5::before {
   content: "";
@@ -490,6 +491,7 @@ h2{
 }
 
 .matrixtoteles-sala5{ background: url('/imagenes/matrixtoteles-sala5.jfif') center center / cover no-repeat; }
+.matrixtoteles2-sala5{ background: url('/imagenes/matrixtoteles-sala5.jfif') center center / cover no-repeat; }
 .matrixtotelesPrime-sala5{ background: url('/imagenes/matrixtotelesPrime-sala5.jfif') center center / cover no-repeat; }
 .matrixtotelesPrime2-sala5{ background: url('/imagenes/matrixtotelesPrime-sala5.jfif') center center / cover no-repeat; }
 
@@ -501,6 +503,11 @@ h2{
   pointer-events: none;
   animation: matrixtotelesCrossFade 2s ease-in-out forwards;
 }
+
+.pasillo-sala7{ background: url('/imagenes/pasillo-sala7.jfif') center center / cover no-repeat; }
+.esposas-sala7{ background: url('/imagenes/esposas-sala7.jfif') center center / cover no-repeat; }
+.carcel-sala7{ background: url('/imagenes/carcel-sala7.jfif') center center / cover no-repeat; }
+.salidaCarcel-sala7{ background: url('/imagenes/salidaCarcel-sala7.jfif') center center / cover no-repeat; }
 
 @keyframes matrixtotelesCrossFade{
   0%{
@@ -797,6 +804,14 @@ form div{
   transform: translateY(120px) rotate(90deg);
   opacity: 0.95;
   pointer-events: none;
+}
+
+.candado-carcel{
+  position: fixed;
+  bottom: 15%;
+  left: 10%;
+  width: 12%;
+  cursor: pointer;
 }
 
 /* =========================================================

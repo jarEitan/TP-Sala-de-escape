@@ -300,3 +300,23 @@ document.addEventListener('DOMContentLoaded', function () {
         s2.onclick = function (e) { handleSmithClick('smith2'); };
     }
 });
+
+function verificarCandadoCarcel() {
+    const codigoCandado = (document.getElementById("inputCandado").value || "").trim();
+    // Acepta cualquier número negativo (enteros o con decimales, p.ej. -3 o -3.14)
+    if (/^-\d+(?:\.\d+)?$/.test(codigoCandado)) {
+        alert("¡Candado abierto!");
+        cerrarModal();
+        siguienteSala(2, 3);
+    } else {
+        document.getElementById("inputCandado").value = "";
+        document.getElementById("inputCandado").placeholder = "Numero incorrecto";
+        // Cambiar color del placeholder
+        if (!document.getElementById('placeholder-error-style-candado')) {
+            const style = document.createElement('style');
+            style.id = 'placeholder-error-style-candado';
+            style.innerHTML = '#inputCandado::placeholder { color: #ff6b6b; }';
+            document.head.appendChild(style);
+        }
+    }
+}

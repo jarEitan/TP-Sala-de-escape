@@ -2,6 +2,11 @@
     ViewData["Title"] = "sala 5";
 }
 
+<section section class="fondo negro" id="0">
+<h2>¿Qué pasó, donde estoy?</h2>
+<button class="button" type="button" onclick="siguienteSala(0,1)">Seguir</button>
+</section>
+
 <section class="inventario" id="inventario">
     <p>Inventario</p>
     <div id="bate" style="display: none;">
@@ -11,7 +16,7 @@
     </div>
 </section>
 
-<section class="fondo catacumba-sala5" id="0">
+<section class="fondo catacumba-sala5" id="1" style="display: none;">
     <img src="~/imagenes/recursos/bate.png" alt="filtro rojo" class="bate" id="bate-item" onclick="agarrarItem('bate-item', 'bate')" />
     <img src="~/imagenes/recursos/smith.png" alt="smith" class="smith1" onclick="abrirModal('smith1')"/>
     <img src="~/imagenes/recursos/smith.png" alt="smith" class="smith2" onclick="abrirModal('smith2')"/>

@@ -2,9 +2,30 @@
     ViewData["Title"] = "sala 6";
 }
 
-<section class="fondo matrixtoteles-sala5" id="0">
+<section class="fondo matrixtoteles-sala5" id="-3">
     <div>
-        <h2>"¡Oídme, mortal! Yo soy Matrixtoteles, supremo sabio que las entrañas de este entramado conoce y domina. Ante la suma de mi ciencia seréis probado en el crisol de la razón, pues solo la voluntad firme habrá de rasgar el velo. ¿Aceptas el desafío?"</h2>
+        <h2>"¡Oídme, mortal! Yo soy Matrixtoteles, supremo sabio que las entrañas de este entramado conoce y domina."</h2>
+        <button class="button" type="button" onclick="siguienteSala(-3,-2)">¿Donde estoy?</button>
+    </div>
+</section>
+
+<section class="fondo matrixtoteles2-sala5" id="-2" style="display: none;">
+    <div>
+        <h2>"Toda tu vida siempre ha sido una mentira, te encontrabase en una simulacion y ahora estas en el camino hacia la libertad... a la salida de la matrix"</h2>
+        <button class="button" type="button" onclick="siguienteSala(-2,-1)">¿¿¿COMO???</button>
+    </div>
+</section>
+
+<section class="fondo matrixtoteles2-sala5" id="-1" style="display: none;">
+    <div>
+        <h2>"El ser humano siempre ha sido arrogante y supone saber mas de lo que realmente sabe, ¿quieres la libertad porque la conoces o porque crees que puedes con ella?"</h2>
+        <button class="button" type="button" onclick="siguienteSala(-1,0)">Siguiente</button>
+    </div>
+</section>
+
+<section class="fondo matrixtoteles2-sala5" id="0" style="display: none;">
+    <div>
+        <h2>"Y ahora, ante la suma de mi ciencia seréis probado en el crisol de la razón, pues solo la voluntad firme habrá de rasgar el velo. YO MATRIXTOTELES TE DESAFIO"</h2>
         <button class="button" type="button" onclick="siguienteSala(0,1)">¡YO TE DESAFÍO!</button>
     </div>
 </section>
@@ -14,8 +35,8 @@
         <h2>1- Completa la frase: "un gran --- conlleva una gran matrixresponsabilidad"</h2>
         <div>
             <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(1)">poder</button>
-            <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(1)">matrixpoder</button>
-            <button class="button lil-boton" type="button" onclick="siguienteSala(1,2)">matrix-poder</button>
+            <button class="button lil-boton" type="button" onclick="siguienteSala(1,2)">matrixpoder</button>
+            <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(1)">matrix</button>
         </div>
     </div>
 </section>
