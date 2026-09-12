@@ -34,3 +34,20 @@ else
 
 
 <button class="button" type="button" onclick="location.href='@Url.Action("Nosotros", "Home")'">EL EQUIPO</button>
+
+@section Scripts {
+    <script>
+        function reproducirMusicaDeFondo() {
+            const reproduccion = iniciarMusica('niño-brasileño-cantando-pou-version-completa.mp3', 0, 30);
+
+            if (reproduccion) {
+                reproduccion.catch(function () {
+                    document.addEventListener('pointerdown', reproducirMusicaDeFondo, { once: true });
+                    document.addEventListener('keydown', reproducirMusicaDeFondo, { once: true });
+                });
+            }
+        }
+
+        reproducirMusicaDeFondo();
+    </script>
+}
