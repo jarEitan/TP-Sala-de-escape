@@ -22,7 +22,7 @@
  * // Detener efectos
  * audioManager.stopAllEffects();
  * 
-
+*/
 var mensaje = document.getElementById("mensaje");
 var salaActiva = 1;
 var pestañaActiva;
@@ -34,10 +34,10 @@ var pestañaActiva;
  * Formato: 'nombreView': { archivo: 'cancion.mp3', volumen: 0.5 }
  */
 const musicasPorView = {
-    'Index': { archivo: 'ambiente.mp3', volumen: 0.4 },
-    'Registrarse': { archivo: 'ambiente.mp3', volumen: 0.4 },
-    'IniciarSesion': { archivo: 'ambiente.mp3', volumen: 0.4 },
-    'Nosotros': { archivo: 'ambiente.mp3', volumen: 0.4 },
+    'Index': { archivo: 'musicaMenu (among us).mp3', volumen: 0.4 },
+    'Registrarse': { archivo: 'musicaMenu (among us).mp3', volumen: 0.4 },
+    'IniciarSesion': { archivo: 'musicaMenu (among us).mp3', volumen: 0.4 },
+    'Nosotros': { archivo: 'musicaMenu (among us).mp3', volumen: 0.4 },
     'sala1': { archivo: 'sala1.mp3', volumen: 0.5 },
     'sala2': { archivo: 'sala2.mp3', volumen: 0.5 },
     'sala3': { archivo: 'sala3.mp3', volumen: 0.5 },
@@ -45,6 +45,15 @@ const musicasPorView = {
     'sala5': { archivo: 'sala5.mp3', volumen: 0.5 },
     'sala6': { archivo: 'sala6.mp3', volumen: 0.5 },
     'sala7': { archivo: 'sala7.mp3', volumen: 0.5 },
+};
+
+/**
+ * Mapeo de efectos automáticos por vista
+ * Formato: 'nombreView': { archivo: 'efecto.mp3', delay: 200, volumen: 0.7 }
+ */
+const efectosPorView = {
+    'sala1': { archivo: 'despertador.mp3', delay: 200, volumen: 0.7 },
+    // Agregar más efectos por vista según sea necesario
 };
 
 /**
@@ -95,11 +104,57 @@ function detectarViewYReproducirMusica() {
 }
 
 /**
+ * Reproduce efectos automáticos según la vista
+ */
+function reproducirEfectosAutomaticos() {
+    // Validar que audioManager esté disponible
+    if (typeof audioManager === 'undefined') {
+        console.warn('AudioManager no está disponible aún para efectos...');
+        setTimeout(reproducirEfectosAutomaticos, 100);
+        return;
+    }
+
+    let viewActual = null;
+
+    // Opción 1: Buscar data-audio en el body
+    const dataEffectBody = document.body.getAttribute('data-audio');
+    if (dataEffectBody) {
+        viewActual = dataEffectBody;
+    }
+    
+    // Opción 2: Buscar variable windowViewName
+    if (!viewActual && typeof windowViewName !== 'undefined' && windowViewName) {
+        viewActual = windowViewName;
+    }
+
+    // Opción 3: Detectar por URL
+    if (!viewActual) {
+        const urlActual = window.location.pathname.toLowerCase();
+        for (const view of Object.keys(efectosPorView)) {
+            if (urlActual.includes(view.toLowerCase())) {
+                viewActual = view;
+                break;
+            }
+        }
+    }
+
+    // Reproducir efecto si existe para esta vista
+    if (viewActual && efectosPorView[viewActual]) {
+        const efecto = efectosPorView[viewActual];
+        audioManager.playSoundEffect(efecto.archivo, efecto.delay, efecto.volumen);
+        console.log(`🔊 Efecto reproducido: ${efecto.archivo} (delay: ${efecto.delay}ms)`);
+    }
+}
+
+/**
  * Inicialización múltiple para asegurar que funcione en cualquier escenario
  */
 function inicializarMusica() {
     // Intentar iniciar música
     detectarViewYReproducirMusica();
+    
+    // Reproducir efectos automáticos
+    setTimeout(() => reproducirEfectosAutomaticos(), 100);
     
     // Reintentos adicionales en caso de que no haya funcionado
     setTimeout(() => {
@@ -132,6 +187,8 @@ window.addEventListener('load', function() {
         console.log('Iniciando música desde evento load...');
         detectarViewYReproducirMusica();
     }
+    // También reproducir efectos en load
+    setTimeout(() => reproducirEfectosAutomaticos(), 100);
 });
 
 // Evento de cambio de estado del documento
@@ -278,6 +335,7 @@ function fallarMatrixtoteles(origen) {
 function validarTemperatura() {
     const temperaturaInput = document.getElementById("input").value;
     if (temperaturaInput == 96) {
+        audioManager.playSoundEffect('café.mp3', 0, 1);
         siguienteSala(2, 3);
     } else {
         document.getElementById("input").value = "";
