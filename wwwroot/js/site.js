@@ -1,6 +1,173 @@
-﻿var mensaje = document.getElementById("mensaje");
+﻿/**
+ * ============ EJEMPLOS DE USO DEL SISTEMA DE AUDIO ============
+ * 
+ * // Reproducir música
+ * audioManager.playMusic('niño-brasileño-cantando-pou-version-completa.mp3', 800, 0.4);
+ * 
+ * // Cambiar música con transición
+ * audioManager.playMusic('sala1.mp3', 600, 0.5);
+ * 
+ * // Reproducir efecto
+ * audioManager.playSoundEffect('puerta.mp3', 0, 0.7);
+ * 
+ * // Reproducir efecto con delay
+ * audioManager.playSoundEffect('alarma.mp3', 500, 0.8);
+ * 
+ * // Controlar música
+ * audioManager.pauseMusic();
+ * audioManager.resumeMusic();
+ * audioManager.stopMusic(500);
+ * audioManager.setMusicVolume(0.3);
+ * 
+ * // Detener efectos
+ * audioManager.stopAllEffects();
+ * 
+
+var mensaje = document.getElementById("mensaje");
 var salaActiva = 1;
 var pestañaActiva;
+
+// ============ SISTEMA DE MÚSICA POR VIEW ============
+
+/**
+ * Mapeo de vistas a canciones
+ * Formato: 'nombreView': { archivo: 'cancion.mp3', volumen: 0.5 }
+ */
+const musicasPorView = {
+    'Index': { archivo: 'ambiente.mp3', volumen: 0.4 },
+    'Registrarse': { archivo: 'ambiente.mp3', volumen: 0.4 },
+    'IniciarSesion': { archivo: 'ambiente.mp3', volumen: 0.4 },
+    'Nosotros': { archivo: 'ambiente.mp3', volumen: 0.4 },
+    'sala1': { archivo: 'sala1.mp3', volumen: 0.5 },
+    'sala2': { archivo: 'sala2.mp3', volumen: 0.5 },
+    'sala3': { archivo: 'sala3.mp3', volumen: 0.5 },
+    'sala4': { archivo: 'sala4.mp3', volumen: 0.5 },
+    'sala5': { archivo: 'sala5.mp3', volumen: 0.5 },
+    'sala6': { archivo: 'sala6.mp3', volumen: 0.5 },
+    'sala7': { archivo: 'sala7.mp3', volumen: 0.5 },
+};
+
+/**
+ * Detecta la vista actual y reproduce la música correspondiente
+ */
+function detectarViewYReproducirMusica() {
+    // Validar que audioManager esté disponible
+    if (typeof audioManager === 'undefined') {
+        console.warn('AudioManager no está disponible aún, reintentando...');
+        setTimeout(detectarViewYReproducirMusica, 100);
+        return;
+    }
+
+    // Opción 1: Buscar atributo data-music en el body
+    const dataMusicBody = document.body.getAttribute('data-music');
+    if (dataMusicBody) {
+        const config = musicasPorView[dataMusicBody];
+        if (config) {
+            audioManager.playMusic(config.archivo, 800, config.volumen);
+            console.log(`🎵 Música iniciada (data-music): ${config.archivo}`);
+            return;
+        }
+    }
+
+    // Opción 2: Buscar variable global windowViewName (establecida en las vistas)
+    if (typeof windowViewName !== 'undefined' && windowViewName) {
+        const config = musicasPorView[windowViewName];
+        if (config) {
+            audioManager.playMusic(config.archivo, 800, config.volumen);
+            console.log(`🎵 Música iniciada (windowViewName): ${config.archivo}`);
+            return;
+        }
+    }
+
+    // Opción 3: Detectar por URL
+    const urlActual = window.location.pathname.toLowerCase();
+    for (const [view, config] of Object.entries(musicasPorView)) {
+        if (urlActual.includes(view.toLowerCase())) {
+            audioManager.playMusic(config.archivo, 800, config.volumen);
+            console.log(`🎵 Música iniciada (URL): ${config.archivo}`);
+            return;
+        }
+    }
+
+    // Fallback: reproducir canción por defecto
+    audioManager.playMusic('niño-brasileño-cantando-pou-version-completa.mp3', 800, 0.4);
+    console.log(`🎵 Música iniciada (fallback): niño-brasileño-cantando-pou-version-completa.mp3`);
+}
+
+/**
+ * Inicialización múltiple para asegurar que funcione en cualquier escenario
+ */
+function inicializarMusica() {
+    // Intentar iniciar música
+    detectarViewYReproducirMusica();
+    
+    // Reintentos adicionales en caso de que no haya funcionado
+    setTimeout(() => {
+        if (typeof audioManager !== 'undefined' && !audioManager.musicaActual) {
+            console.warn('Reintentando inicialización de música...');
+            detectarViewYReproducirMusica();
+        }
+    }, 500);
+
+    setTimeout(() => {
+        if (typeof audioManager !== 'undefined' && !audioManager.musicaActual) {
+            console.warn('Tercer intento de inicialización de música...');
+            detectarViewYReproducirMusica();
+        }
+    }, 1500);
+}
+
+// Múltiples puntos de disparo para asegurar ejecución
+if (document.readyState === 'loading') {
+    // Documento aún cargándose
+    document.addEventListener('DOMContentLoaded', inicializarMusica);
+} else {
+    // Documento ya cargado
+    inicializarMusica();
+}
+
+// Evento load (después de todas las imágenes y recursos)
+window.addEventListener('load', function() {
+    if (typeof audioManager !== 'undefined' && !audioManager.musicaActual) {
+        console.log('Iniciando música desde evento load...');
+        detectarViewYReproducirMusica();
+    }
+});
+
+// Evento de cambio de estado del documento
+document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        if (typeof audioManager !== 'undefined' && !audioManager.musicaActual) {
+            console.log(`Iniciando música desde readystatechange (${document.readyState})...`);
+            detectarViewYReproducirMusica();
+        }
+    }
+});
+
+// Reiniciar música cuando el usuario interactúa
+document.addEventListener('click', function iniciarAudio(event) {
+    if (typeof audioManager !== 'undefined') {
+        const musicaActiva = audioManager.musicaActual?.paused === false;
+        if (!musicaActiva) {
+            console.log('Iniciando música por interacción del usuario...');
+            detectarViewYReproducirMusica();
+        }
+    }
+}, { once: false });
+
+// Detectar cuando el usuario regresa a la pestaña (para evitar conflictos)
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        // Usuario minimizó o cambió de pestaña
+        console.log('Página oculta');
+    } else {
+        // Usuario volvió a la pestaña
+        console.log('Página visible, verificando música...');
+        if (typeof audioManager !== 'undefined' && !audioManager.musicaActual) {
+            detectarViewYReproducirMusica();
+        }
+    }
+});
 
 function _showMensaje(text) {
     var el = document.getElementById("mensaje");
