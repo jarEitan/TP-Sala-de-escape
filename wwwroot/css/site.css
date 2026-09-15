@@ -9,6 +9,11 @@
   padding: 0;
   font-family: "Press Start 2P", system-ui;
   text-shadow: 0 0 10px #00ff00;
+  -webkit-user-drag: none; /* Evita el arrastre en navegadores basados en Chromium y Safari */
+  -webkit-user-select: none; /* Safari y Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer / Edge */
+  user-select: none;         /* Estándar actual */
 }
 
 :root{
@@ -512,6 +517,9 @@ h2{
 .esposas-sala7{ background: url('/imagenes/esposas-sala7.jfif') center center / cover no-repeat; }
 .carcel-sala7{ background: url('/imagenes/carcel-sala7.jfif') center center / cover no-repeat; }
 .salidaCarcel-sala7{ background: url('/imagenes/salidaCarcel-sala7.jfif') center center / cover no-repeat; }
+.esquina-sala7{ background: url('/imagenes/esquina-sala7.jfif') center center / cover no-repeat; }
+.habitacion-sala8{ background: url('/imagenes/habitacion-sala8.jfif') center center / cover no-repeat; }
+.morfeo-sala8{ background: url('/imagenes/morfeo-sala8.jfif') center center / cover no-repeat; }
 
 @keyframes matrixtotelesCrossFade{
   0%{

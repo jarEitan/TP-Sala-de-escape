@@ -1,3 +1,23 @@
 @{
-    ViewData["Title"] = "sala 7";
+    ViewData["Title"] = "sala 8";
 }
+
+<section class="fondo habitacion-sala8" id="0">
+    <div>
+        <button class="button" type="button" onclick="siguienteSala(0,1)">¿Quien eres?</button>
+    </div>
+</section>
+
+<section class="fondo morfeo-sala8 vacio" id="1">
+    <div>
+        <h2>LLegaste al final de tu jornada, en mis manos tengo 2 pildoras, la roja te hará volver a tu vida normal y decidiras si creer lo que sucedio, la roja te mostrará la verdad... Elije sabiamente.</h2>
+        <button class="button" type="button" onclick="siguienteSala(1,2)">Elegir</button>
+    </div>
+</section>
+
+<section class="fondo morfeo-sala8 vacio" id="2">
+    <div>
+        <button class="button" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 9 })'">Pastilla Azul</button>
+        <button class="button" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 10 })'">Pastilla Roja</button>
+    </div>
+</section>
