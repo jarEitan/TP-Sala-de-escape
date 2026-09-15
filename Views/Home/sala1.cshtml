@@ -9,14 +9,14 @@
     </div>
 </section>
 
-<section class="fondo cocina-sala1" id="1" style="display: none;">
+<section class="fondo cocina-sala1 vacio" id="1">
     <div>
         <button class="button" type="button" onclick="siguienteSala(1,2)">Hacer café</button>
         <h2>Hoy tenes una reunion importante, por eso te levantaste muy temprano, un café te ayudaria mucho.</h2>
     </div>
 </section>
 
-<section class="fondo manual-sala1" id="2" style="display: none;">
+<section class="fondo manual-sala1 vacio" id="2">
     <div>
         <h2>Te compraste una cafetera nueva, pero no sabes como usarla, tenés que buscar la temperatura adecuada.</h2>
         <div>
@@ -26,7 +26,7 @@
     </div>
 </section>
 
-<section class="fondo puerta-sala1" id="3" style="display: none;">
+<section class="fondo puerta-sala1 vacio" id="3">
     <div>
         <h2>Ya desayunaste, estas listo para ir al trabajo.</h2>
         <button class="button" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 2 })'">Seguir</button>

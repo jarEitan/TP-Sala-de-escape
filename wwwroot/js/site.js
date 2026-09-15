@@ -230,7 +230,7 @@ function _showMensaje(text) {
     var el = document.getElementById("mensaje");
     if (!el) return;
     el.innerHTML = text;
-    el.style.display = "block";
+    el.classList.remove("vacio");
 }
 
 function isTurnstileAvailable() {
@@ -319,9 +319,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function siguienteSala(numero, numero2) {
     const fase1 = document.getElementById(numero);
-    fase1.style.display = "none";
+    fase1.classList.add("vacio");
     const fase2 = document.getElementById(numero2);
-    fase2.style.display = "flex";
+    fase2.classList.remove("vacio");
     salaActiva = numero2;
 }
 
@@ -352,15 +352,18 @@ function validarTemperatura() {
 function abrirModal(id) {
     const modal = document.getElementById(id);
     if (modal) {
-        modal.style.display = "flex";
+        modal.classList.remove("vacio");
+        modal.classList.add("activo");
         pestañaActiva = id; // Guardar la pestaña activa
     }
 }
 
 function cerrarModal(id) {
-    const modal = document.getElementById(id);
+    const modalId = id || pestañaActiva;
+    const modal = document.getElementById(modalId);
     if (modal) {
-        modal.style.display = "none";
+        modal.classList.add("vacio");
+        modal.classList.remove("activo");
         const inputCandado = document.getElementById("inputCandado");
         if (inputCandado) {
             inputCandado.value = "";
@@ -391,7 +394,7 @@ function verificarCandado() {
 function activarInventario() {
     const inventario = document.getElementById("inventario");
     if (inventario) {
-        inventario.style.display = "flex";
+        inventario.classList.remove("vacio");
     }
 }
 
@@ -399,8 +402,8 @@ function agarrarItem(itemId, invId) {
     const item = document.getElementById(itemId);
     const inventario = document.getElementById(invId);
     if (item && inventario) {
-        item.style.display = "none";
-        inventario.style.display = "flex";
+        item.classList.add("vacio");
+        inventario.classList.remove("vacio");
     }
 }
 
@@ -409,9 +412,9 @@ function usarFiltro() {
     const monitor = document.getElementById("monitor-visible");
     const monitorEscondido = document.getElementById("monitor-escondido");
     if (pestañaActiva === "monitor" && item && monitor && monitorEscondido) {
-        item.style.display = "none";
-        monitorEscondido.style.display = "none";
-        monitor.style.display = "flex";
+        item.classList.add("vacio");
+        monitorEscondido.classList.add("vacio");
+        monitor.classList.remove("vacio");
     }
 }
 
@@ -419,8 +422,8 @@ function usarTarjeta() {
     const item = document.getElementById("tarjeta");
     const caja = document.getElementById("botonCaja");
     if (item && salaActiva == 4) {
-        item.style.display = "none";
-        caja.style.display = "block";
+        item.classList.add("vacio");
+        caja.classList.remove("vacio");
     }
 }
 
@@ -442,8 +445,8 @@ function verificarCaja() {
     if (codigoCaja1 == "45" && codigoCaja2 == "19" && codigoCaja3 == "34") {
         alert("¡Caja abierta!");
         cerrarModal("caja");
-        carpeta.style.display = "flex";
-        botonSalir.style.display = "block";
+        carpeta.classList.remove("vacio");
+        botonSalir.classList.remove("vacio");
     } else {
         inputCaja1.value = "";
         inputCaja2.value = "";
@@ -469,7 +472,7 @@ function usarBate() {
     if (!inv) return;
     // If bate is in inventory, use it: remove from inventory and enable bateUsed
     if (window.getComputedStyle(inv).display !== 'none') {
-        inv.style.display = 'none';
+        inv.classList.add('vacio');
         bateUsed = true;
     }
 }
@@ -498,7 +501,10 @@ function handleSmithClick(id) {
             checkShowArrow();
         }
         var modal = document.getElementById(id);
-        if (modal) modal.style.display = 'none';
+        if (modal) {
+            modal.classList.add('vacio');
+            modal.classList.remove('activo');
+        }
     } else {
         // no bate used: open the modal as before
         abrirModal(id);
@@ -509,7 +515,7 @@ function checkShowArrow() {
     if (guardKillCount >= 2) {
         var flecha = document.getElementById('flecha');
         if (flecha) {
-            flecha.style.display = 'flex';
+            flecha.classList.remove('vacio');
         }
     }
 }

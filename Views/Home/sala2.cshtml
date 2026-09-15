@@ -9,7 +9,7 @@
     </div>
 </section>
 
-<section class="fondo vagabundo-sala2" id="1" style="display: none;">
+<section class="fondo vagabundo-sala2 vacio" id="1">
     <div>
         <h2>una moneda para comer porfavor</h2>
         <div>
@@ -22,16 +22,16 @@
     </div>
 </section>
 
-<section class="fondo puerta-sala2" id="2" style="display: none;">
+<section class="fondo puerta-sala2 vacio" id="2">
     <div>
         <h2>LLegué al trabajo, pero la puerta esá cerrada, tengo que buscar la llave</h2>
         <button class="button" type="button" onclick="siguienteSala(2,3)">Buscar llave</button>
     </div>
 </section>
 
-<section class="fondo puerta-sala2" id="3" style="display: none;">
+<section class="fondo puerta-sala2 vacio" id="3">
     <button class="button align-start" type="button" onclick="abrirModal('al')">Probar numero</button>
-    <div id="al" class="ventana-fondo" style="display: none;">
+    <div id="al" class="ventana-fondo vacio">
         <div class="ventana">
             <h2>Escribe la contraseña (4 numeros)</h2>
             <input type="text" id="inputCandado" class="input-matrix" placeholder="Ingresa el código" />
@@ -43,7 +43,7 @@
     <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(3,4)"/>
     
     <img src="~/imagenes/recursos/papel.png" alt="abajo" class="papel" onclick="abrirModal('text')"/>
-    <div id="text" class="ventana-fondo" style="display: none;">
+    <div id="text" class="ventana-fondo vacio">
         <div class="ventana texto-org">
             <h2>Si alguien encuentra esta nota, recuerde la secuencia para los mandos antes de que corten la energía: el ciclo comienza con la bruma opaca de la ceniza acumulada, sigue descendiendo hacia las profundidades oscuras del océano, se adentra en la vegetación húmeda del musgo silvestre y termina en el matiz delicado de un pétalo de rosa. No olviden el orden o el sistema se bloqueará.</h2>
             <button class="button" type="button" onclick="cerrarModal('text')">Salir</button>
@@ -51,18 +51,18 @@
     </div>
 </section>
 
-<section class="fondo salaPuzle1-sala2" id="4" style="display: none;">
+<section class="fondo salaPuzle1-sala2 vacio" id="4">
     <img src="~/imagenes/recursos/flecha-izquierda.png" alt="arriba" class="flechaIzquierda" onclick="siguienteSala(4,3)"/>
 </section>
 
-<section class="fondo salaPuzle2-sala2" id="5" style="display: none;">
+<section class="fondo salaPuzle2-sala2 vacio" id="5">
     <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(5,3)"/>
     @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
 </section>
 
-<section class="fondo salaPuzle2-sala2" id="6" style="display: none;">
+<section class="fondo salaPuzle2-sala2 vacio" id="6">
     <div class="ventana">
         <h2>Finalmente lograste entrar en la oficina.</h2>
         <button class="button" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 3 })'">Seguir</button>

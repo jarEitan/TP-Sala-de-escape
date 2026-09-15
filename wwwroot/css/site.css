@@ -168,6 +168,10 @@ section div{
   box-shadow: none;
 }
 
+.vacio{
+  display: none !important;
+}
+
 h2{
   width: fit-content;
   font-size: 300%;

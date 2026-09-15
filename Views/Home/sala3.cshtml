@@ -8,24 +8,24 @@
         <button class="button" type="button" onclick="siguienteSala(0,1), activarInventario()">Buscar</button>
     </div>
 </section>
-<section class="inventario" id="inventario" style="display: none;">
+<section class="inventario vacio" id="inventario">
     <p>Inventario</p>
-    <div id="filtro" style="display: none;">
+    <div id="filtro" class="vacio">
         <p>Filtro rojo</p>
         <img src="~/imagenes/recursos/filtro-rojo.png" alt="filtro rojo" class="item" />
         <button class="button" type="button" onclick="usarFiltro()">Usar</button>
     </div>
-    <div id="tarjeta" style="display: none;">
+    <div id="tarjeta" class="vacio">
         <p>Tarjeta Perforada</p>
         <img src="~/imagenes/recursos/tarjeta-perforada.png" alt="tarjeta perforada" class="item" />
         <button class="button" type="button" onclick="usarTarjeta()">Usar</button>
     </div>
-    <div id="carpeta" style="display: none;">
+    <div id="carpeta" class="vacio">
         <p>Carpeta SUPER DUPER MEGA ULTRA HIPER SECRETA</p>
         <img src="~/imagenes/recursos/carpeta.png" alt="carpeta" class="item" />
     </div>
 </section>
-<section class="fondo entrada-sala3" id="1" style="display: none;">
+<section class="fondo entrada-sala3 vacio" id="1">
     @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
@@ -33,9 +33,9 @@
         <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba"
              onclick="siguienteSala(1,2)" />
     </div>
-    <button id="botonSalir" class="button" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 4 })'" style="display: none;">Salir de la oficina</button>
+    <button id="botonSalir" class="button vacio" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 4 })'">Salir de la oficina</button>
 </section>
-<section class="fondo cubiculos-sala3" id="2" style="display: none;">
+<section class="fondo cubiculos-sala3 vacio" id="2">
     <div>
         <img src="~/imagenes/recursos/filtro-rojo.png" alt="filtro rojo" class="filtro" id="filtro-item"
              onclick="agarrarItem('filtro-item', 'filtro')" />
@@ -48,15 +48,15 @@
 
         <button class="button botonMonitor" type="button" onclick="abrirModal('monitor')">Mirar Monitor</button>
 
-        <div id="monitor" class="ventana ventanaMonitor" style="display: none;">
+        <div id="monitor" class="ventana ventanaMonitor vacio">
             <img src="~/imagenes/recursos/monitorEscondido.png" id="monitor-escondido" alt="monitor" class="monitor" />
-            <img src="~/imagenes/recursos/monitor.png" id="monitor-visible" alt="monitor" class="monitor" style="display: none;" />
+            <img src="~/imagenes/recursos/monitor.png" id="monitor-visible" alt="monitor" class="monitor vacio" />
             <button class="button" type="button" onclick="cerrarModal('monitor')">Salir</button>
         </div>
 
     </div>
 </section>
-<section class="fondo archivo-sala3" id="3" style="display: none;">
+<section class="fondo archivo-sala3 vacio" id="3">
     @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
@@ -65,7 +65,7 @@
         <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(3,2)" />
     </div>
 </section>
-<section class="fondo jefe-sala3" id="4" style="display: none;">
+<section class="fondo jefe-sala3 vacio" id="4">
     @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta2" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
@@ -73,8 +73,8 @@
         <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(4,2)" />
     </div>
     
-    <button id="botonCaja" class="button botonMonitor" type="button" onclick="abrirModal('caja')" style="display: none;">Abrir Caja</button>
-    <div id="caja" class="ventana-fondo" style="display: none;">
+    <button id="botonCaja" class="button botonMonitor vacio" type="button" onclick="abrirModal('caja')">Abrir Caja</button>
+    <div id="caja" class="ventana-fondo vacio">
         <div class="ventana ventanaCaja">
             <div class="cajaContenido">
                 <div class="cajaInputs">
