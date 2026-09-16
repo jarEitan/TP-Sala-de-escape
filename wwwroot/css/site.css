@@ -79,6 +79,10 @@
   100% { transform: translateY(120px) rotate(90deg); opacity: 0.95; }
 }
 
+.conos-sala10::before,
+.negro2::before,
+.casa-sala1::before,
+.morfeo-sala8::before,
 .carcel-sala7::before,
 .matrixtoteles-sala5::before,
 .catacumba-sala5::before {
@@ -247,10 +251,40 @@ h2{
   opacity: 0.8;
 }
 
-.titulo h1::before{
-  color: #00ff88;
-  transform: translate(2px, 0);
-  clip-path: inset(0 0 55% 0);
+.graciasPorJugar h1::before,
+.graciasPorJugar h1::after{
+  content: "¡Gracias por jugar!";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.graciasPorJugar{
+  width: 80% !important;
+  background-color: black;
+  margin: 1%;
+  padding: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: 1px solid greenyellow;
+  border-radius: 25px;
+  box-shadow: 0 0 48px 11px rgba(171, 255, 46, 0.5);
+}
+
+.posicionGracias1{
+  position: fixed;
+  top: 30%;
+}
+
+.posicionGracias2{
+  position: fixed;
+  top: 15%;
+}
+
+.posicionGracias2 h1{
+  font-size: 400% !important;
 }
 
 .titulo h1::after{
@@ -520,6 +554,9 @@ h2{
 .esquina-sala7{ background: url('/imagenes/esquina-sala7.jfif') center center / cover no-repeat; }
 .habitacion-sala8{ background: url('/imagenes/habitacion-sala8.jfif') center center / cover no-repeat; }
 .morfeo-sala8{ background: url('/imagenes/morfeo-sala8.jfif') center center / cover no-repeat; }
+.conos-sala10{ background: url('/imagenes/conos-sala10.jfif') center center / cover no-repeat; }
+.conos2-sala10{ background: url('/imagenes/conos2-sala10.png') center center / cover no-repeat; }
+
 
 @keyframes matrixtotelesCrossFade{
   0%{
@@ -848,4 +885,15 @@ header nav button:focus-visible,
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.horizontal-buttons{
+  display: flex;
+  justify-content: center;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+}
+
+.horizontal-buttons button{
+  width: fit-content;
 }
