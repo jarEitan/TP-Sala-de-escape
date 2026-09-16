@@ -11,20 +11,20 @@
  * Los nombres deben coincidir con los archivos de /wwwroot/sonido.
  */
 var audioPorVista = {
-	Index: { musica: "musicaMenu (among us).mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	Nosotros: { musica: "Last Ride In.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	IniciarSesion: { musica: "Last Ride In.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	Registrarse: { musica: "Last Ride In.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	sala1: { musica: "sonidoCalle.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	sala2: { musica: "pasos.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	sala3: { musica: "tornadoOfSouls.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	sala4: { musica: "tornadoOfSouls-solo.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	sala5: { musica: "blablsbla.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	sala6: { musica: "Last Ride In.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	sala7: { musica: "despertador.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	sala8: { musica: "tornadoOfSouls.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	sala9: { musica: "Last Ride In.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 },
-	sala10: { musica: "blablsbla.mp3", volumenMusica: 1, audio: null, volumenAudio: 1 }
+	Index: { musica: "musicaMenu (among us).mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	Nosotros: { musica: "musicaMenu (among us).mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	IniciarSesion: { musica: "musicaMenu (among us).mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	Registrarse: { musica: "musicaMenu (among us).mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	sala1: { musica: "Last Ride In.mp3", volumenMusica: 0.5, audio: "despertador.mp3", volumenAudio: 0.5 },
+	sala2: { musica: "sonidoCalle.mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	sala3: { musica: "Last Ride In.mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	sala4: { musica: "Last Ride In.mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	sala5: { musica: "Last Ride In.mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	sala6: { musica: "tornadoOfSouls.mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	sala7: { musica: "Last Ride In.mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	sala8: { musica: "Last Ride In.mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	sala9: { musica: "Last Ride In.mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 },
+	sala10: { musica: "Last Ride In.mp3", volumenMusica: 0.5, audio: null, volumenAudio: 1 }
 };
 
 (function () {

@@ -607,14 +607,14 @@ h2{
   transform: translateY(-2%);
   border-color: #eaff66;
   background: linear-gradient(180deg, rgba(0, 8, 0, 0.9), rgba(0, 24, 0, 0.8));
-  box-shadow: 0 0 0 0.3% rgba(234, 255, 102, 0.25), 0 0 34px 8px rgba(171, 255, 46, 0.22);
+  box-shadow: 0 0 34px 8px rgba(171, 255, 46, 0.22);
 }
 
 .input-matrix:active{
   transform: scale(0.99);
   background: rgba(0, 10, 0, 0.88);
   color: #f4ffb0;
-  box-shadow: 0 0 0 0.3% rgba(171, 255, 46, 0.18), 0 0 22px 6px rgba(171, 255, 46, 0.18);
+  box-shadow: 0 0 22px 6px rgba(171, 255, 46, 0.18);
 }
 
 form{
@@ -897,3 +897,4 @@ header nav button:focus-visible,
 .horizontal-buttons button{
   width: fit-content;
 }
+

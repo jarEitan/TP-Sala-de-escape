@@ -12,10 +12,10 @@
 <section class="fondo vagabundo-sala2 vacio" id="1">
     <div>
         <h2>una moneda para comer porfavor</h2>
-        <div>
+        <div class="horizontal-buttons">
         <button class="button" type="button" onclick="siguienteSala(1,2); audioManager.playSoundEffect('pasos.mp3', 0.8); audioManager.playSoundEffect('moneda.mp3', 0.8);">Dar moneda</button>
-        <button class="button" type="button" onclick="siguienteSala(1,2); audioManager.playSoundEffect('pasos.mp3', 0.8);">Seguir de largo</button>
-        </div>
+        <button class="button" type="button" onclick="siguienteSala(1,2); audioManager.playSoundEffect('pasos.mp3', 0.8);">Seguir</button>
+        </>
         @if (Context.Session.GetString("salida") == "True"){
             <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
         }

@@ -107,6 +107,6 @@ public class HomeController : Controller
         bd.actualizarSalida(int.Parse(HttpContext.Session.GetString("ID")));
         HttpContext.Session.SetString("salida", "True");
 
-        return View("sala1");
+        return RedirectToAction("entrar", new { numero = 1 });
     }
 }
