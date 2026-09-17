@@ -5,7 +5,7 @@
 <section class="fondo calle-sala2" id="0">
     <div>
         <h2>Estoy yendo al trabajo, falta poco.</h2>
-        <button class="button" type="button" onclick="siguienteSala(0,1); audioManager.playSoundEffect('blablsbla.mp3', 500, 0.8); audioManager.playSoundEffect('pasos.mp3', 0.8);">Empezar dia </button>
+        <button class="button" type="button" onclick="siguienteSala(0,1); audioManager.playSoundEffect('blablsbla.mp3', 0.8); audioManager.playSoundEffect('pasos.mp3', 1);">Empezar dia </button>
     </div>
 </section>
 
@@ -13,8 +13,8 @@
     <div>
         <h2>una moneda para comer porfavor</h2>
         <div class="horizontal-buttons">
-        <button class="button" type="button" onclick="siguienteSala(1,2); audioManager.playSoundEffect('pasos.mp3', 0.8); audioManager.playSoundEffect('moneda.mp3', 0.8);">Dar moneda</button>
-        <button class="button" type="button" onclick="siguienteSala(1,2); audioManager.playSoundEffect('pasos.mp3', 0.8);">Seguir</button>
+        <button class="button" type="button" onclick="siguienteSala(1,2); audioManager.playSoundEffect('pasos.mp3', 1); audioManager.playSoundEffect('moneda.mp3', 0.8);">Dar moneda</button>
+        <button class="button" type="button" onclick="siguienteSala(1,2); audioManager.playSoundEffect('pasos.mp3', 1);">Seguir</button>
         </>
         @if (Context.Session.GetString("salida") == "True"){
             <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
@@ -25,7 +25,7 @@
 <section class="fondo puerta-sala2 vacio" id="2">
     <div>
         <h2>LLegué al trabajo, pero la puerta esá cerrada, tengo que buscar la llave</h2>
-        <button class="button" type="button" onclick="siguienteSala(2,3)">Buscar llave</button>
+        <button class="button" type="button" onclick="siguienteSala(2,3); audioManager.playMusic('Last Ride In.mp3', 0.3);">Buscar llave</button>
     </div>
 </section>
 
@@ -39,8 +39,8 @@
             <button class="button" type="button" onclick="cerrarModal('al')">Salir</button>
         </div>
     </div>
-    <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba" onclick="siguienteSala(3,5)"/>
-    <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(3,4)"/>
+    <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba" onclick="siguienteSala(3,5); audioManager.playSoundEffect('pasos.mp3', 1);"/>
+    <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(3,4); audioManager.playSoundEffect('pasos.mp3', 1);"/>
     
     <img src="~/imagenes/recursos/papel.png" alt="abajo" class="papel" onclick="abrirModal('text')"/>
     <div id="text" class="ventana-fondo vacio">
@@ -52,11 +52,11 @@
 </section>
 
 <section class="fondo salaPuzle1-sala2 vacio" id="4">
-    <img src="~/imagenes/recursos/flecha-izquierda.png" alt="arriba" class="flechaIzquierda" onclick="siguienteSala(4,3)"/>
+    <img src="~/imagenes/recursos/flecha-izquierda.png" alt="arriba" class="flechaIzquierda" onclick="siguienteSala(4,3); audioManager.playSoundEffect('pasos.mp3', 1);"/>
 </section>
 
 <section class="fondo salaPuzle2-sala2 vacio" id="5">
-    <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(5,3)"/>
+    <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(5,3); audioManager.playSoundEffect('pasos.mp3', 1);"/>
     @if (Context.Session.GetString("salida") == "True"){
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }

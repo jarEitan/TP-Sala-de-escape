@@ -94,10 +94,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function siguienteSala(numero, numero2) {
+    if (siguienteSala._locked) return;
+    siguienteSala._locked = true;
+    setTimeout(function () { siguienteSala._locked = false; }, 500);
+
     const fase1 = document.getElementById(numero);
-    fase1.classList.add("vacio");
+    if (fase1) fase1.classList.add("vacio");
     const fase2 = document.getElementById(numero2);
-    fase2.classList.remove("vacio");
+    if (fase2) fase2.classList.remove("vacio");
     salaActiva = numero2;
 }
 
@@ -151,7 +155,7 @@ function cerrarModal(id) {
 function verificarCandado() {
     const codigoCandado = document.getElementById("inputCandado").value;
     if (codigoCandado == "1045") {
-        alert("¡Candado abierto!");
+        audioManager.playSoundEffect('cerradura.mp3', 1);
         cerrarModal();
         siguienteSala(3, 6);
     } else {
@@ -178,6 +182,7 @@ function agarrarItem(itemId, invId) {
     const item = document.getElementById(itemId);
     const inventario = document.getElementById(invId);
     if (item && inventario) {
+        audioManager.playSoundEffect('recoger.mp3', 1);
         item.classList.add("vacio");
         inventario.classList.remove("vacio");
     }
@@ -188,6 +193,7 @@ function usarFiltro() {
     const monitor = document.getElementById("monitor-visible");
     const monitorEscondido = document.getElementById("monitor-escondido");
     if (pestañaActiva === "monitor" && item && monitor && monitorEscondido) {
+        audioManager.playSoundEffect('recoger.mp3', 1);
         item.classList.add("vacio");
         monitorEscondido.classList.add("vacio");
         monitor.classList.remove("vacio");
@@ -198,6 +204,7 @@ function usarTarjeta() {
     const item = document.getElementById("tarjeta");
     const caja = document.getElementById("botonCaja");
     if (item && salaActiva == 4) {
+        audioManager.playSoundEffect('recoger.mp3', 1);
         item.classList.add("vacio");
         caja.classList.remove("vacio");
     }
@@ -219,7 +226,7 @@ function verificarCaja() {
     const codigoCaja3 = inputCaja3.value.trim();
 
     if (codigoCaja1 == "45" && codigoCaja2 == "19" && codigoCaja3 == "34") {
-        alert("¡Caja abierta!");
+        audioManager.playSoundEffect('cerradura.mp3', 1);
         cerrarModal("caja");
         carpeta.classList.remove("vacio");
         botonSalir.classList.remove("vacio");
@@ -248,6 +255,7 @@ function usarBate() {
     if (!inv) return;
     // If bate is in inventory, use it: remove from inventory and enable bateUsed
     if (window.getComputedStyle(inv).display !== 'none') {
+        audioManager.playSoundEffect('recoger.mp3', 1);
         inv.classList.add('vacio');
         bateUsed = true;
     }
@@ -268,6 +276,7 @@ function handleSmithClick(id) {
                 guardImg.classList.add('guard-fallen');
                 guardImg.removeEventListener('animationend', onEnd);
                 guardKillCount += 1;
+                audioManager.playSoundEffect('golpe.mp3', 0.7);
                 checkShowArrow();
             };
             guardImg.addEventListener('animationend', onEnd);
@@ -312,7 +321,7 @@ function verificarCandadoCarcel() {
     const codigoCandado = (document.getElementById("inputCandado").value || "").trim();
     // Acepta cualquier número negativo (enteros o con decimales, p.ej. -3 o -3.14)
     if (/^-\d+(?:\.\d+)?$/.test(codigoCandado)) {
-        alert("¡Candado abierto!");
+        audioManager.playSoundEffect('cerradura.mp3', 1);
         cerrarModal();
         siguienteSala(2, 3);
     } else {

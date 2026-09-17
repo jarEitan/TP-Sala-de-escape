@@ -31,7 +31,7 @@
     }
     <div>
         <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba"
-             onclick="siguienteSala(1,2)" />
+             onclick="siguienteSala(1,2); audioManager.playSoundEffect('pasos.mp3', 1);" />
     </div>
     <button id="botonSalir" class="button vacio" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 4 })'">Salir de la oficina</button>
 </section>
@@ -41,10 +41,10 @@
              onclick="agarrarItem('filtro-item', 'filtro')" />
 
         <img src="~/imagenes/recursos/flecha-arriba.png" alt="arriba" class="flechaArriba"
-             onclick="siguienteSala(2,3)" />
-        <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(2,1)" />
+               onclick="siguienteSala(2,3); audioManager.playSoundEffect('pasos.mp3', 1);" />
+           <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(2,1); audioManager.playSoundEffect('pasos.mp3', 1);" />
         <img src="~/imagenes/recursos/flecha-derecha.png" alt="arriba" class="flechaDerecha"
-             onclick="siguienteSala(2,4)" />
+               onclick="siguienteSala(2,4); audioManager.playSoundEffect('pasos.mp3', 1);" />
 
         <button class="button botonMonitor" type="button" onclick="abrirModal('monitor')">Mirar Monitor</button>
 
@@ -62,7 +62,7 @@
     }
     <div>
         <img src="~/imagenes/recursos/tarjeta-perforada.png" alt="tarjeta perforada" class="tarjeta" id="tarjeta-item" onclick="agarrarItem('tarjeta-item', 'tarjeta')" />
-        <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(3,2)" />
+        <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(3,2); audioManager.playSoundEffect('pasos.mp3', 1);" />
     </div>
 </section>
 <section class="fondo jefe-sala3 vacio" id="4">
@@ -70,7 +70,7 @@
         <img src="~/imagenes/recursos/grieta.png" alt="grieta" class="grieta2" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 5 })'"/>
     }
     <div>
-        <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(4,2)" />
+        <img src="~/imagenes/recursos/flecha-abajo.png" alt="abajo" class="flechaAbajo" onclick="siguienteSala(4,2); audioManager.playSoundEffect('pasos.mp3', 1);" />
     </div>
     
     <button id="botonCaja" class="button botonMonitor vacio" type="button" onclick="abrirModal('caja')">Abrir Caja</button>

@@ -26,27 +26,27 @@
 <section class="fondo matrixtoteles2-sala5 vacio" id="0">
     <div>
         <h2>"Y ahora, ante la suma de mi ciencia seréis probado en el crisol de la razón, pues solo la voluntad firme habrá de rasgar el velo. YO MATRIXTOTELES TE DESAFIO"</h2>
-        <button class="button" type="button" onclick="siguienteSala(0,1)">¡YO TE DESAFÍO!</button>
+        <button class="button" type="button" onclick="siguienteSala(0,1); audioManager.playMusic('tornadoOfSouls-solo.mp3', 0.3);">¡YO TE DESAFÍO!</button>
     </div>
 </section>
 
 <section class="fondo matrixtotelesPrime-sala5 vacio" id="1">
     <div>
-        <h2>1- Completa la frase: "un gran --- conlleva una gran matrixresponsabilidad"</h2>
+        <h2>Completa la frase: "un gran --- conlleva una gran matrixresponsabilidad"</h2>
         <div>
             <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(1)">poder</button>
-            <button class="button lil-boton" type="button" onclick="siguienteSala(1,2)">matrixpoder</button>
             <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(1)">matrix</button>
+            <button class="button lil-boton" type="button" onclick="siguienteSala(1,2)">matrixpoder</button>
         </div>
     </div>
 </section>
 
 <section class="fondo matrixtotelesPrime2-sala5 vacio" id="2">
     <div>
-        <h2>2- ¿Quien fué el campeon del mundo de formula1 en 1951?</h2>
+        <h2>¿Quien fué el campeon del mundo de formula1 en 1951?</h2>
         <div>
-            <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(2)">Ascari</button>
             <button class="button lil-boton" type="button" onclick="siguienteSala(2,3)">Fangio</button>
+            <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(2)">Ascari</button>
             <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(2)">Mansel</button>
         </div>
     </div>
@@ -54,7 +54,7 @@
 
 <section class="fondo matrixtotelesPrime2-sala5 vacio" id="3">
     <div>
-        <h2>3- ¿Cuál es mi color favorito?</h2>
+        <h2>¿Cuál es mi color favorito?</h2>
         <div>
             <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(3)">verde</button>
             <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(3)">negro</button>
@@ -63,7 +63,49 @@
     </div>
 </section>
 
-<section class="fondo matrixtoteles-sala5 vacio" id="4">
+<section class="fondo matrixtotelesPrime2-sala5 vacio" id="4">
+    <div>
+        <h2>Si meto 1000 pesos en un banco, ¿cuánto tendré en un año?</h2>
+        <div>
+            <button class="button lil-boton" type="button" onclick="siguienteSala(4,5)">Nada</button>
+            <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(4)">1100</button>
+            <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(4)">El amor de ella</button>
+        </div>
+    </div>
+</section>
+
+<section class="fondo matrixtotelesPrime2-sala5 vacio" id="5">
+    <div>
+        <h2>Si un arbol se cae pero nadie lo ve ni lo escucha ¿Realmente existe ese arbol?</h2>
+        <div>
+            <button class="button lil-boton" type="button" onclick="siguienteSala(5,6)">Si</button>
+            <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(5)">No</button>
+            <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(5)">No se puede saberlo</button>
+        </div>
+    </div>
+</section>
+
+<section class="fondo matrixtotelesPrime2-sala5 vacio" id="6">
+    <div>
+        <h2>Si toda tu vida fue una simulacion, ¿Entonces no es la simulacion tu realidad? ¿Que sentido tiene salir?</h2>
+        <div>
+            <button class="button lil-boton" type="button" onclick="siguienteSala(6,7)">...</button>
+        </div>
+    </div>
+</section>
+
+<section class="fondo matrixtotelesPrime2-sala5 vacio" id="7">
+    <div>
+        <h2>si el Tomate se quiere ir, que le dice la Pera?</h2>
+        <div>
+            <button class="button lil-boton" type="button" onclick="siguienteSala(7,8)">EsPERAme</button>
+            <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(7)">TOMATE tu tiempo</button>
+            <button class="button lil-boton" type="button" onclick="fallarMatrixtoteles(7)">Conozco un buen psicologo por si lo necesitas</button>
+        </div>
+    </div>
+</section>
+
+<section class="fondo matrixtoteles-sala5 vacio" id="8">
     <div>
         <h2>Matrixtoteles te observa en silencio. Has demostrado verdadera sabiduría y te deja pasar.</h2>
         <button class="button" type="button" onclick="location.href='@Url.Action("entrar", "Home", new { numero = 7 })'">Seguir</button>
